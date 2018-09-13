@@ -1,0 +1,216 @@
+{% use '_blocks.html.twig' %}
+
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		{{ block('head_brand') }}
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/loader.css" />
+		<link rel="stylesheet" type="text/css" href="css/hint.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Oswald:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Poppins:400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	</head>
+
+	<script id="card-template" type="text/x-handlebars-template">
+	{% verbatim %}
+		{{#each cards}}
+	  		<div class="card {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
+				<div class="card-header">
+					<div class="new">NEW</div>
+					<img src="img/{{{cardImage}}}" alt="">
+				</div>
+				<div class="card-body">
+					<h2>{{{cardTitre}}}<br><span>{{{cardFilter1Display}}}</span></h2>
+					<h5>{{cardSubtitle}}</h5>
+
+				</div>
+			</div>
+		{{/each}}
+	{% endverbatim %}
+	</script>
+
+	<script id="detail-template" type="text/x-handlebars-template">
+		{% verbatim %}
+			<div class="visualisator-header" style="background-image: url('img/{{{cardImage}}}');">
+				<div class="visualisator-header-box">
+					<h1>{{{cardTitre}}}</h1>
+					<h5>{{{cardSubtitle}}}</h5>
+				</div>
+			</div>
+			<div class="visualisator-body">
+
+				<div id="debug"></div>
+
+				<h2 class="pratique">
+					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo1}}}<br>
+					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo2}}}
+				</h2>
+				<h2>
+					{{{cardSection1Title}}}
+				</h2>
+				<p id="cardSection1">
+					{{{cardSection1Text}}}
+				</p>
+
+				<div class="collapsed-text">
+					<p>
+					{{{cardSection2Text}}}
+					</p>
+				</div>
+				<p class="linkedin">
+					{{{cardSection5Text}}}
+				</p>
+				<p class="news-link">
+					{{{cardSection6Text}}}
+				</p>
+				<p class="links">
+					<a class="previous previousCard" href="#prev"><span>‹</span> Portrait précédent</a>
+					<a class="next nextCard" href="#next">Portrait suivant <span>›</span></a>
+				</p>
+				<div class="btn">Fermer</div>
+			</div>
+		{% endverbatim %}
+	</script>
+
+	<body style="padding-top: {{ navBarOffset }};">
+
+		{{ block('bar_brand') }}
+
+		<div class="overlay">
+			<img class="logo-lt-blanc" src="img/logo-lt-blanc.svg" alt="">
+			<div class="spinner">
+				<div class="double-bounce1"></div>
+				<div class="double-bounce2"></div>
+			</div>
+		</div>
+
+		<h3 class="open-menu">Filtres</h3>
+
+		<div class="bg"></div>
+
+		<div class="overlay-content">
+			<div class="popup">
+				<h3>
+					Digital Shapers 2018
+				</h3>
+				<p>
+					Le who is who de la Suisse numérique
+				</p>
+				<p>
+					Utilisez les filtres de la colonne de gauche pour trier les portraits.
+				</p>
+				<div class="btn">Démarrer</div>
+			</div>
+		</div>
+
+		<div class="reader">
+			<div class="visualisator">
+
+			</div>
+		</div>
+
+		<aside>
+			<!--<h3>
+				Filtres
+			</h3>-->
+
+			<div class="filter2">
+				<h4>
+					Par âge <span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter2-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-moins-40">- de 40 ans</div>
+					<div class="btn" data-filter=".f-plus-40">40 ans et +</div>
+				</div>
+			</div>
+
+			<div class="filter2">
+				<h4>
+					Par région <span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter2-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-romand">Suisse romande</div>
+					<div class="btn" data-filter=".f-alemanique">Suisse alémanique</div>
+					<div class="btn" data-filter=".f-hors">Hors Suisse</div>
+				</div>
+			</div>
+
+			<div class="filter3">
+				<h4>
+					Par genre <span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter3-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-homme">Hommes</div>
+					<div class="btn" data-filter=".f-femme">Femmes</div>
+				</div>
+			</div>
+
+			<div class="filter4">
+				<h4>
+					Par catégorie <span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter4-btn-grp" data-filter-group="theme">
+
+					<div class="btn" data-filter=".f-precurseurs">Les précurseurs</div>
+					<div class="btn" data-filter=".f-creatifs">Les créatifs</div>
+					<div class="btn" data-filter=".f-grands-seigneurs">Les grands seigneurs</div>
+					<div class="btn" data-filter=".f-espoirs">Les espoirs</div>
+				</div>
+			</div>
+
+			<div class="filter5">
+				<h4>
+					Par secteur d’activité <span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter5-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-industrie">Industrie</div>
+					<div class="btn" data-filter=".f-industrie-non">Banques</div>
+					<div class="btn" data-filter=".f-industrie-non">Recherche</div>
+					<div class="btn" data-filter=".f-industrie-non">Art</div>
+				</div>
+			</div>
+
+			<div class="methodologie">
+				<h4>
+					Méthodologie
+				</h4>
+				<p>Phrase explicative sur 1-2 lignes (penser mobile) <a href="#">Plus…</a></p>
+			</div>
+
+			<!--
+			<div class="filter6">
+				<h4>
+					Par nombre d’employés (! EPFZ, uni)<span><i class="fa fa-close"></i>
+				</h4>
+				<div class="filter6-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-independant">Indépendant</div>
+					<div class="btn" data-filter=".f-pme">PME</div>
+					<div class="btn" data-filter=".f-grande-entreprise">Grande entreprise</div>
+				</div>
+			</div>
+			-->
+
+
+			<h3 class="close-menu">
+				Fermer
+			</h3>
+
+		</aside>
+
+		<div class="content">
+		</div>
+
+		{{ block('footer_brand') }}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+		<script src="js/handlebars-v4.0.4.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+	</body>
+
+</html>

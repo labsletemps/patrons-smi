@@ -1,0 +1,606 @@
+ {
+        "intro":{
+            "introPosition": "milieu",
+
+            "introTitle": "Mon essai de titre ici",
+            "introTitleBig": "Front national",
+
+            "introDate": null,
+            "introHr": "Yes",
+
+            "introChapeau": null,
+            "introChapeauBig": ""
+        },   
+        "credits":{
+            "creditsTexte": "<b>Textes: </b>Auteur ici<br> <b>Photographie: </b>Photographe ici<br><b>Réalisation: </b>César Greppin"
+        }, 
+        "params":{
+            "vFactor": 0.2
+        }, 
+        "cards":[
+            {
+            "cardId": "1",
+            "cardImage": "cope.jpg",
+            "cardTitre": "Jean-François Copé",
+            "cardSubtitle": "Chantre un peu dépassé de la droite décomplexée",
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "23 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Oui",
+            "cardFilter4Tri": "f-ena-oui",
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Improbable",
+            "cardFilter6Tri": "f-improbable",
+
+            "cardInfo1": "Né le 5 mai 1964 à Boulogne-Billancourt, ouest de Paris",
+            "cardInfo2": "En politique depuis 1993",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Diplômé de Sciences-Po Paris, énarque, avocat d’affaires. Maire de Meaux en 1995 élu sur une liste RPR dissidente, député, porte-parole du gouvernement, secrétaire d’État puis ministre délégué à l’Intérieur et au Budget de 2002 à 2007, plusieurs hauts postes à l’UMP entre 2012 à 2014 avant de devoir quitter sa présidence dans le sillage de l’affaire Bygmalion.",
+
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "L'inventeur de la «droite décomplexée» défend maintenant le projet d’un «sursaut français» (le titre de son dernier livre) pour une «France décomplexée». Son slogan: «On ne recule plus». Sur son site on lit: «Interdisons le burkini en France» {…) «La guerre est en France, assumons-le enfin!». Il propose d’embaucher 50 000 nouveaux policiers, gendarmes ou magistrats. Il dénonce le déclinisme, les boucs-émissaires, milite pour une pleine liberté d’entreprendre. Il veut développer l’apprentissage, redonner l’espoir aux jeunes, introduire une sélection à l’université pour redonner de la valeur à ses diplômes. Il l’affirme: «la France doit être commandée!» ",
+
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "En rade, clairement. S'il a facilement rassemblé les parrainages nécessaires pour concourir, il ne dépassait pas la barre des 5% de bonnes opinions dans un sondage Ifop Fiducial en mai. Plusieurs de ses soutiens sont partis à la concurrence, au point de susciter ce tweet mélancolique, fin août: «Rude semaine! Après Sarko à Châteaurenard et Jacob mon ami de toujours qui part chez Sarko. Chirac, toi qui as vécu ça en 1995, aide moi!»",
+
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Nicolas Sarkozy, qui lui a fait perdre la présidence de l’UMP, et qu’il accuse d’avoir «eu tous les pouvoirs et de ne pas avoir fait son devoir». François Fillon: le psychodrame entre les deux hommes pour l’élection à la tête de l’UMP a laissé des traces. ",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "L’affaire Bygmalion l’a forcé à quitter la présidence de l’UMP, même s’il n’a finalement pas été mis en examen. Il traîne aussi comme un boulet ses propos de 2012 sur un jeune qui se serait fait voler son pain au chocolat par des voyous au prétexte qu’«on ne mange pas au ramadan. Propos dont il a dû se distancier. Son malheur est d'être crédité exactement des mêmes qualités que Nicolas Sarkozy: le courage, le dynamisme, l'autorité».",
+
+            "cardSection7Title": "",
+            "cardSection7Text": ""
+            },{
+            "cardId": "2",
+            "cardImage": "geoffroy.jpg",
+            "cardTitre": "Geoffroy Didier",
+            "cardSubtitle": "Le benjamin qui mise sur le changement de génération", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "13 ans ",
+            "cardFilter2Tri": "f-moins-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Symbolique",
+            "cardFilter6Tri": "f-symbolique",
+
+            "cardInfo1": "Né le 12 avril 1976 à Boulogne-Billancourt (ouest de Paris)",
+            "cardInfo2": "En politique depuis 2002",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Diplômé de Sciences-Po, de l’Essec (école de commerce), de la faculté de droit d’Assas et de Columbia. Avocat inscrit aux barreaux de Paris et New York, il devient ensuite conseiller politique du ministre de l’Intérieur Brice Hortefeux sous la présidence de Nicolas Sarkozy. En mai 2006 il fonde «La Diagonale», un club qui veut rassembler des «Sarkozystes de gauche» et prône par exemple le droit de vote aux municipales pour les étrangers installés depuis longtemps. Elu au Conseil régional d’Île de France en 2010 il lance en 2012 une nouvelle motion dans l’UMP «La droite forte», bien plus conservatrice que «La Diagonale» (qui a disparu de son CV officiel). Il exerce de nouveau la profession d’avocat aujourd’hui tout en étant vice-président du Conseil régional d’Ile-de-France. ",
+            
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": " Il veut la fin de l’entre-soi politique, la fin du cumul des mandats et le renouvellement des gouvernants - pierre dans le jardin de presque tous les autres candidats. Il prône le retour aux valeurs fondatrices de la Nation, s’engage à consulter régulièrement le peuple par référendum, demande la modification du droit du sol et le contrôle du web pour lutter contre les sites islamistes (il a un vrai discours sur le Net).",
+            "cardSection4Title": "En rade ou en vogue?",
+            "cardSection4Text": "Il bénéficie du soutien de Valérie Pécresse, la présidente du Conseil régional d’Ile-de-France; mais clairement, sa candidature sert avant tout à accroître sa notoriété. Ce qui n'empêche pas qu'il soit bien seul.",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Son inexpérience, ses réseaux balbutiants. Nicolas Sarkozy, qui voit sa candidature comme un affront personnel. ",
+
+            "cardSection6Title": "Casseroles ",
+            "cardSection6Text": " Il a changé de position sur le mariage gay, et sa droitisation interroge. ",
+            "cardSection7Title": "Bon à savoir",
+            "cardSection7Text": "Il devient ministre de la Justice sous la présidence de Marine Le Pen dans la BD d’anticipation «La présidente» de François Durpaire et Farid Boudjellal (Les Arènes, 2015)"
+            },{
+            "cardId": "3",
+            "cardImage": "fillon.jpg",
+            "cardTitre": "François Fillon",
+            "cardSubtitle": "Un austère provincial ambitieux", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "35 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Oui",
+            "cardFilter4Tri": "f-ena-oui", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Bon",
+            "cardFilter6Tri": "f-bon",
+
+            "cardInfo1": "Né le 4 mars 1954 au Mans, dans l'ouest",
+            "cardInfo2": "En politique depuis 1981",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": " Etudes de droit, mais il n’a jamais exercé. Elu député RPR de la Sarthe en 1981 à 27 ans, à l’époque c’est le benjamin de l’Assemblée. Classé parmi les «rénovateurs de la droite» dans les années 1990, proche de Philippe Seguin, il a été plusieurs fois ministre sous les présidences de François Mitterrand (cohabitation de 1993-95) puis de Jacques Chirac. Il fut premier ministre pendant toute l’omniprésidence de Nicolas Sarkozy de 2007 à 2012, est aujourd’hui député de Paris. Il s'est férocement battu contre Jean-François Copé pour emporter la présidence de l’UMP fin 2012. ",
+            
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Son manifeste s'intitule: «Osons dire, osons faire» et comprend de nombreuses mesures libérales drastiques pour l’emploi: suppression des 35 heures, refonte des conventions collectives, passage de l’âge de la retraite à 65 ans et alignement des retraites des secteurs privé et public. Il veut une «vraie rupture» - et accuse Alain Juppé de lui avoir piqué ses idées économiques. Aussi sur son site internet: la réforme de l’asile, la baisse de l’immigration, le durcissement des conditions pour devenir français. Il réclame un nouveau Traité européen.",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "Entre deux eaux. Il est soutenu par une certaine France traditionnelle, séduite par ses idées thatchériennes et son look de gendre idéal, plus rassurant que celui de Nicolas Sarkozy. ",
+
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Il en a beaucoup. Nicolas Sarkozy, qui l’avait taxé de simple «collaborateur» et ne lui pardonne pas de faire bande à part (commentaire de François Fillon à l’annonce de la candidature de l’ex président: «Les agités ne restent pas vivants très longtemps» ); mais aussi Jean-François Copé: le duel fratricide pour emporter l'UMP en 2014 a laissé des traces. ",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Son propre bilan à Matignon sous Nicolas Sarkozy; son image de grand bourgeois provincial tradi (son château dans la Sarthe, ses cinq enfants); ses allégeances mouvantes – il a été balladurien, chiraquien, sarkozyste, avec des positionnements idéologiques sensiblement différents. ",
+            "cardSection7Title": "",
+            "cardSection7Text": ""
+            },{
+            "cardId": "4",
+            "cardImage": "guaino.jpg",
+            "cardTitre": "Henri Guaino",
+            "cardSubtitle": "Du porte-plume de l’ombre au gaulliste social frustré", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "21 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Improbable",
+            "cardFilter6Tri": "f-improbable",
+
+            "cardInfo1": "Né le 11 mars 1957 à Arles, dans le sud ",
+            "cardInfo2": "En politique depuis 1995",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Issu d'un milieu très modeste, élevé par sa mère. Diplômé de Sciences-Po, et de Paris-Dauphine (économie). Quatre ans de carrière d’économiste et de spécialiste financier avant de devenir Commissaire au plan sous Edouard Balladur, et conseiller de Jacques Chirac gne de 1995 sur la «Fracture sociale». Conseiller de Nicolas Sarkozy pendant sa campagne de 2007. Il est député des Yvelines depuis 2012.",
+            
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Il dit être candidat parce «qu’il en a assez de cette politique qui ne sait plus dire non» (Un de ses premiers livres s’appelle «L’étrange renoncement»).  Il se dit gaulliste de la famille «qui a fait la sécurité sociale, les allocations chômage. Ma famille politique, ce n'est pas celle qui trouve que le Smic est trop élevé et que c'est ça la cause du chômage.» Un discours qui lui vaut l'appui des gaullistes sociaux. On le connaît aussi pour ses positions anti-communautaristes, il est très attentif à la question nationale et identitaire. ",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "C'est un «petit» candidat, sans beaucoup de soutiens. S’il ne parvient pas à obtenir d'ici le 9 septembre le soutien d'au moins vingt parlementaires, de 250 élus LR répartis dans au moins trente départements et de 2 500 adhérents du parti, il affirme qu’il se présentera directement à la présidentielle. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Le libéralisme économique en vogue chez Les Républicains, en décalage profond avec ses convictions gaullistes sociales. Son isolement au sein des Républicains. ",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Son image de nationaliste outrancier et réac, de porte-plume de Nicolas Sarkozy.",
+            "cardSection7Title": "Faits d'armes",
+            "cardSection7Text": "Le discours programmatique du Bourget de Nicolas Sarkozy: c’est lui qui l’a écrit."
+            },{
+            "cardId": "5",
+            "cardImage": "hammou.jpg",
+            "cardTitre": "Hassen Hammou",
+            "cardSubtitle": "Le figurant", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "1 an",
+            "cardFilter2Tri": "f-moins-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Symbolique",
+            "cardFilter6Tri": "f-symbolique",
+
+            "cardInfo1": "27 ans ",
+            "cardInfo2": "En politique depuis 2015",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": " Issu des quartiers Nord de Marseille et militant associatif, le jeune homme dirige une petite entreprise de nettoyage. Son parcours politique est quasiment vierge. En 2014, il se présente aux élections municipales sous l’étiquette du Parti radical de gauche (PRG). La même année, il se fait remarquer lors d’une émission télévisée face au président François Hollande. Il rejoint dans la foulée «Les Républicains».",
+     
+
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": " Hassen Hammou fait de la jeunesse sa priorité. Il demande également l’arrêt du «gaspillage d’argent public à travers des aides inadaptées». Il dénonce par ailleurs la remise en cause du droit du sol proposée par son adversaire Nicolas Sarkozy. Mais son programme est très incomplet et reste flou.",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": " Hassen Hammou l’assume, il est un «candidat de seconde zone». Il revendique une dizaine de parrainages… mais il lui en faut 2500 pour participer à la primaire de la droite et du centre. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Son inexpérience, son manque de réseaux, la nouveauté de sa candidature.",
+
+            "cardSection6Title": "",
+            "cardSection6Text": "  ",
+            "cardSection7Title": "Points forts",
+            "cardSection7Text": " Il fait de son origine sociale une force, un argument. «Je suis un candidat populaire, qui vient du bas. Aucun autre concurrent ne présente cette caractéristique, alors que beaucoup d'électeurs peuvent se retrouver dans mon profil», dit-il.  "
+            },{
+            "cardId": "6",
+            "cardImage": "juppe.jpg",
+            "cardTitre": "Alain Juppé",
+            "cardSubtitle": "Un recours réaliste, rassurant et rassemblant", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "40 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Oui",
+            "cardFilter4Tri": "f-ena-oui", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Très bon",
+            "cardFilter6Tri": "f-tres-bon",
+
+            "cardInfo1": "Né le 15 août 1945 à Mont-de-Marsan, dans les Landes",
+            "cardInfo2": "En politique depuis 1976",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Recordman du diplôme: inspecteur des finances de formation, Normale Sup (il est agrégé de lettres classiques), Sciences-po puis l’ENA. Proche de Jacques Chirac à la fin des années 1970 quand celui-ci était maire de Paris, conseiller puis député de Paris en 1986, ministre du Budget et porte-parole du gouvernement Balladur en 1986, secrétaire général du RPR en 1988, ministre des Affaires étrangères de 1993 à 1995, premier ministre en 1995, maire de Bordeaux après la dissolution ratée de 1997 (de 1995 à 2004 puis depuis 2006). Ministre des Affaires étrangères et européennes en 2011.",
+
+           
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Des mesures économiques avec pour objectif le plein emploi (le titre de son dernier livre : «Cinq ans pour l’emploi»). La réduction des charges pour les entreprises, la hausse de l’âge des retraites, la fin des 35 heures, la suppression de l'ISF. Sur le plan sociétal, il défend une «identité heureuse» avec plus de tolérance face à la «diversité», acceptant le port du foulard à l’université, affirmant que l’islam est compatible avec la démocratie, et refusant le communautarisme.",
+
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "Porté par la vague. Il peut revendiquer le soutien du centre-droit (François Bayrou et Claude Chirac), voire la droite de la gauche (Daniel Cohn-Bendit). Son bilan à la mairie de Bordeaux est plébiscité et il rassure les militants traditionnels de la droite classique. C'est le plus expérimenté des candidats - en 1994 déjà, Jacques Chirac disait: «Alain Juppé, probablement le meilleur d'entre nous.» La directrice de sa campagne numérique est une ancienne du staff d'Obama. ",
+
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Nicolas Sarkozy, positionné bien plus à droite, et qui bénéficie de la machine de guerre des Républicains. Son âge. L'hystérie sécuritaire et autoritaire qui a gagné la France depuis les attentats.",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Il a atteint des records d’impopularité en décembre 1995 lors sa réforme de la Sécurité sociale qui a suscité d’immense grèves. Il a dû quitter la vie politique en 2004 après avoir été condamné en tant qu’adjoint aux finances de la mairie de Paris à 14 mois de prison avec sursis et 1 an d’inéligibilité pour prise illégale d’intérêts dans l’affaire des emplois fictifs de la Ville de Paris (qui a valu 2 ans de prison avec sursis à Jacques Chirac pour détournement de fonds publics, abus de confiance, prise illégale d'intérêts et délit d'ingérence). Il a aussi été accusée de népotisme pour avoir demandé une baisse de loyer pour un de ses enfants dans le parc immobilier de la Ville de Paris. ",
+
+            "cardSection6Title": "Faits d'armes",
+            "cardSection6Text": "Le comeback à droite le plus improbable depuis 15 ans. Il était en tête des sondages jusqu'à la candidature de Nicolas Sarkozy, fin août 2016."
+            },{
+            "cardId": "7",
+            "cardImage": "nkm.jpg",
+            "cardTitre": "Nathalie Kosciusko-Morizet",
+            "cardSubtitle": "La bobo 2.0 en mal de soutiens", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "20 ans",
+            "cardFilter2Tri": "f-moins-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-femme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Improbable",
+            "cardFilter6Tri": "f-improbable",
+
+            "cardInfo1": "20 ans ",
+            "cardInfo2": "En politique depuis les années 1990",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": " Issue d’une famille de politiciens sur plusieurs générations, diplômée de l’Ecole polytechnique, elle a fait toute sa carrière dans la haute fonction publique. Dans les années 1990 elle multiplie les postes dans le domaine du développement durable dans plusieurs ministères avant de devenir députée de l’Essonne en 2004, maire de Longjumeau en 2008, secrétaire d’État à l’Ecologie, puis au développement numérique, puis ministre de l’Ecologie sous Nicolas Sarkozy dont elle fut le porte-parole pendant sa campagne de 2012. Elle a été battue à plate couture lors de  l’élection municipale à Paris en 2014, s’est fait évincer de la direction des Républicains fin 2015 et a démissionné de la Fonction publique pour être plus indépendante. ",
+         
+
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": " De nombreuses réformes libérales sur les questions économiques: fin des 35 heures, retraite à 65 ans, «liberté économique», elle fait la différence sur le numérique, une chance pour la France. Sur les questions de société, elle évoque une exigence d’autorité et de protection tout en se positionnant plus au centre: catholique et ne s’en cachant pas, elle fut une bête noire de la Manif pour tous. Elle a refusé la ligne «Buisson» utilisée par Nicolas Sarkozy en 2012: «Pour moi, il y a un adversaire, le PS, et puis il y a un ennemi, le Front national. C'est une erreur de les renvoyer dos à dos». Elle s’est aussi opposée à la déchéance de nationalité. Aujourd’hui elle appelle à lutter contre le salafisme, la «prédication subversive».",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": " En rade. Peu de soutiens de poids dans son pari, même si Alain Juppé l’a encouragée au début de l’été. Si elle ne parvient pas à candidater faute de parrainages, les deux équipes pourraient s’unir. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Nicolas Sarkozy, dont elle s’est beaucoup démarquée depuis son échec en 2012. ",
+
+            "cardSection6Title": "Casseroles ",
+            "cardSection6Text": " Son image de parisienne bobo qui lui colle à la peau, suscitant des maladresses comme ses propos relatant des «moments de grâce» dans le métro en 2013 qui ont fait s’esclaffer toute la Toile.  ",
+            "cardSection7Title": "Points forts",
+            "cardSection7Text": " Qu’elle soit une femme lui ouvre aussi des portes, le parti manquant désespérément de candidates." 
+        	},{
+            "cardId": "8",
+            "cardImage": "lefebvre.jpg",
+            "cardTitre": "Frédéric Lefebvre",
+            "cardSubtitle": "Le conseiller de Nicolas Sarkozy qui a viré sa cuti ", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "25 ans", 
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Symbolique",
+            "cardFilter6Tri": "f-symbolique",
+
+            "cardInfo1": "Né le 14 octobre 1963 à Neuilly-sur-Seine, à l'ouest de Paris",
+            "cardInfo2": "En politique depuis la fin des années 1980",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": " Etudes de droit, attaché parlementaire ou conseiller de Nicolas Sarkozy au début des années 1990.  Carrière parallèle dans la communication et le lobbying (pour les casinos Lucien Barrière, pour l’industrie du tabac), qu’il cesse complètement en 2010 en devenant secrétaire d’État au commerce sous Nicolas Sarkozy. Ila longtemps été considéré comme l’un de ses porte-flingue, ne reculant jamais devant une attaque. Il est depuis 2013 député des Français de l’étranger (Amérique du Nord).",
+            "cardSection2Title": "Candidature officielle",
+            "cardSection2Text": " ",
+
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Frédéric Lefebvre a voté plusieurs lois de gauche depuis 2012 (comme le Pacte de stabilité et de croissance), montrant qu’il en avait fini de l’opposition systématique au risque de troubler son propre camp. Il affirme avoir rompu avec les outrances de l’ère Sarkozy et vouloir «remplacer le combat par le débat» et recentrer la France sur ses «vrais défis – l’égalité sociale et territoriale, l’emploi pour tous». ",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": " En rade. Il n'a pas de soutien, c'est devenu un outsider de la politique.",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Son passé de bretteur polémiste qui lui colle à la peau, son programme flou, son évolution idéologique peu lisible.",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Ses outrances du temps de Nicolas Sarkozy, ses attaques contre les médias. ",
+            "cardSection7Title": "Points forts",
+            "cardSection7Text": "  Il est le héros de l’universitaire Jean-Eric Branaa pour son roman, American Touch «Parlez-moi de vous»."
+            },{
+            "cardId": "9",
+            "cardImage": "lemaire.jpg",
+            "cardTitre": "Bruno Le Maire",
+            "cardSubtitle": "La promesse d'un renouveau", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "18 ans",
+            "cardFilter2Tri": "f-moins-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Oui",
+            "cardFilter4Tri": "f-ena-oui", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Bon",
+            "cardFilter6Tri": "f-bon",
+
+            "cardInfo1": "Né le 15 avril 1969 à Neuilly-sur-Seine, ouest de Paris",
+            "cardInfo2": "En politique depuis 1998",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Agrégé de lettres modernes (il a été reçu premier), Sciences-Po, Ena. Dès 1998 il intègre le Ministère des affaires étrangères. En 2006, Bruno Le Maire devient directeur de cabinet du premier ministre Dominique de Villepin. Un an plus tard, il est élu député UMP de l’Eure. Après un passage au poste de secrétaire d’Etat aux Affaires européennes, il est nommé ministre de l’Agriculture sous la présidence de Nicolas Sarkozy.",
+            
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Bruno Le Maire, qui veut incarner le «renouveau», compte notamment consulter les citoyens par référendum pour limiter le nombre de parlementaires. Prônant un allégement du rôle de l’Etat, le plus jeune candidat de la droite souhaite également supprimer un million de postes dans la fonction publique en dix ans. Par ailleurs, le candidat a durci le ton sur la construction européenne et l’accueil des demandeurs d’asile sur le territoire français. ",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "En vogue. Il fait partie des quadras en vue et en vogue pour rénover le parti et a rapidement obtenu ses parrainages. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Nicolas Sarkozy. ",
+
+            "cardSection6Title": "Faits d'armes ",
+            "cardSection6Text": " Dans la course à la présidence de l’UMP (aujourd’hui «Les Républicains»), il avait obtenu 30% des suffrages. Un score plus qu'honorable qui lui a permis de prendre une autre dimension.",
+            "cardSection7Title": "Casseroles",
+            "cardSection7Text": "En 2013, Mediapart révèle qu'il a salarié sa femme plusieurs années comme assistante parlementaire, une pratique qui suscite la controverse. "
+             },{
+            "cardId": "10",
+            "cardImage": "mariton.jpg",
+            "cardTitre": "Hervé Mariton ",
+            "cardSubtitle": "Le conservateur pour qui Nicolas Sarkozy fait dans la demi-mesure ", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "30 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Improbable",
+            "cardFilter6Tri": "f-improbable",
+
+            "cardInfo1": "Né le 5 novembre 1958 à Alger",
+            "cardInfo2": "En politique depuis les années 1980",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Diplômé de Polytechnique, de Sciences-Po et de Paris Dauphine, russophone, il a brièvement été ministre des DOM-TOM sous Jacques Chirac, mais c’est en tant que porte-parole de la droite opposée au Mariage pour tous qu’il a acquis sa notoriété. Il est aujourd’hui député de la Drôme.",
+           
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Des idées très libérales sur le plan économique (il promeut une «flat tax»). Sur les questions de société, il remet en cause le droit du sol, demande l’interdiction de l’arabe en primaire, le rétablissement de la double peine et promet d’abolir la loi Taubira sur le mariage homosexuel s’il est élu (première de ses 10 priorités). Il s'est aussi distingué en proposant que les réfugiés politiques portent un bracelet électronique tant que leur demande d'asile est en cours.",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "Il drague le même public que Nadine Morano, voire Jean-François Copé ou Henri Guaino. Pas sûr qu'il y ait suffisamment d'adeptes de la parole libérée pour autant de candidats.",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Nicolas Sarkozy. Hervé Mariton a beaucoup critiqué sa candidature dès janvier 2016, estimant qu’elle favoriserait la réélection de François Hollande. Sur le programme de l’ex président :pour lui Sarkozy fait de la demi-mesure. «Sarkozy fait de la gonflette à l'oral, ms c'est autre chose de passer à l'écrit»",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Ses nombreuses propositions caricaturales (voir son programme)",
+            "cardSection7Title": "Points forts",
+            "cardSection7Text": "Un discours qui ne recule devant aucun effet de manche et lui sauve un petit espace médiatique dans une compétition saturée de candidats."
+            },{
+            "cardId": "11",
+            "cardImage": "morano.jpg",
+            "cardTitre": "Nadine Morano",
+            "cardSubtitle": "L’éclat de voix très à droite", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "30 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-femme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Improbable",
+            "cardFilter6Tri": "f-improbable",
+
+            "cardInfo1": "Née le 6 novembre 1963 à Nancy (est)",
+            "cardInfo2": "En politique depuis 1986",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Issue d'un milieu très modeste, études de droit et de communication. Ancienne députée de Meurthe-et-Moselle, Nadine Morano devient d'abord secrétaire d'Etat sous la présidence de Nicolas Sarkozy puis ministre déléguée auprès du ministre du Travail. Depuis 2014, elle est députée européenne.",
+         
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Nadine Morano chasse sur les terres électorales du Front national et prône une ligne de droite extrême sur les questions d’islam et d’immigration. Elle affirme être la «candidate du peuple».",
+            "cardSection4Title": "En rade ou en vogue?",
+            "cardSection4Text": "En rade. Elle joue un peu cavalier seul depuis une énième déclaration polémique à la télévision et peine d’ailleurs à obtenir les parrainages nécessaires pour participer à la primaire de la droite. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Nicolas Sarkozy. Nadine Morano ne cesse de critiquer l’ancien chef de l’Etat depuis sa mise à l’écart progressive depuis 2014. Elle se montre aussi particulièrement virulente contre François Hollande. «Un homme dangereux pour la France», disait-elle lors de la campagne présidentielle de 2012.",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "C'est la reine des dérapages. En 2015, sur le plateau d’«On n’est pas couché», elle déclare que la France est «un pays à majorité de race blanche». Tollé. Ses collègues de droite prennent immédiatement leurs distances.",
+            "cardSection7Title": "Points forts",
+            "cardSection7Text": "Elle n’hésite pas à hausser le ton pour faire valoir ses idées, ce qui pourrait l'aider face à un Nicolas Sarkozy déjà omniprésent. Son positionnement très à droite pourrait également lui servir en plein débat sur l’islam."
+            },{
+            "cardId": "12",
+            "cardImage": "myard.jpg",
+            "cardTitre": "Jacques Myard",
+            "cardSubtitle": "Un souverainiste de la très vieille école ", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "25 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Symbolique",
+            "cardFilter6Tri": "f-symbolique",
+
+            "cardInfo1": "Né le 14 août 1947 à Lyon",
+            "cardInfo2": "En politique depuis les années 1990",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Diplômé de Sciences-Po Lyon, ancien élève de l’Institut de hautes relations internationales de Genève. Maire de Maisons-Laffite depuis 1989 et député des Yvelines depuis 1993. Membre fondateur du courant La Droite populaire au sein de l’UMP en 2010, qui prône plus de fermeté en matière d’immigration et de sécurité.",
+            
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": " dans son «Manifeste pour la Nation» il réclame le rétablissement de la souveraineté nationale face à l’«intégrisme européen». Il prône la lutte contre le communautarisme, l’«obscurantisme» et demande l'installation de «boites noires» pour surveiller la propagande djihadiste sur les réseaux sociaux. Il réclame la revalorisation de la famille et une justice plus rapide et efficace.",
+            "cardSection4Title": "En rade ou en vogue?",
+            "cardSection4Text": "Il ne fait pas partie des ténors des Républicains et n'est pas sûr du tout de pouvoir réunir les soutiens nécessaires pour candidater.",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Son absence de visibilité publique, son manque de réseau.",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Ses positions contre le Pacte d’union civile en 1998 et contre le mariage gay en 2015 l’ont amené à des propos publics très violents, comparant l’homosexualité à une perversion sexuelle."
+             },{
+            "cardId": "13",
+            "cardImage": "poisson.jpg",
+            "cardTitre": "Jean-Frédéric Poisson",
+            "cardSubtitle": "Le successeur de Christine Boutin, aussi catho et rentre-dedans", 
+           
+            "cardFilter1Display": "Parti Chrétien-démocrate",
+            "cardFilter1Tri": "f-centre",
+           
+            "cardFilter2Display": "14 ans",
+            "cardFilter2Tri": "f-moins-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Oui",
+            "cardFilter5Tri": "f-industrie-oui",
+
+            "cardFilter6Display": "Symbolique",
+            "cardFilter6Tri": "f-symbolique",
+
+            "cardInfo1": "Né le 22 janvier 1963 à Belfort (Est) ",
+            "cardInfo2": "En politique depuis 2002",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "Docteur en philosophie, il dit avoir été très marqué par son image de «fils de chômeur» quand il était enfant et se présente comme issu de la «France d’en bas». Très croyant, il s’est converti à 19 ans. Maire de Rambouillet, de 2004 à 2007, il a pris la succession de Christine Boutin comme député de 2007 à 2010, et depuis 2012. Président du Parti chrétien démocrate (PCD) depuis 2013, il n’a pas besoin à ce titre de rassembler de parrainages pour participer à la primaire. C’est lui qui est chargé de la commission parlementaire d’information sur les moyens de Daech.  ",
+          
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Dans «Le réveil», il prône des «mesures énergiques, volontaires, fortes», courageuses. Il souhaite la «réappropriation de notre référence chrétienne». Opposé au futur traité de libre-échange transatlantique, il se dit soucieux de la souveraineté de la France et de la préservation de ses filières d’excellence. Il évoque souvent la question de la famille et la défense des chrétiens d'Orient. ",
+            "cardSection4Title": "En vogue ou en rade?",
+            "cardSection4Text": "En rade. C'est pourtant le seul candidat déjà officiellement qualifié pour le premier tour de la primaire, en sa qualité de président du Parti Chrétien-démocrate, petit parti historiquement affilié à l'ex-UMP, il n'a pas à réunir de parrainages. Mais les sondages le créditent de moins de 1% des intentions de vote.",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": "Pas sûr que ce soit son inexpérience: «Mari heureux, passionné de jazz, fumeur invétéré, inlassable blagueur au rire tonitruant, Poisson n'est pas du sérail» lit-on sur son site: il se positionne comme différent, avec un message différent à faire passer.",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "La succession de Christine Boutin. Il a aussi fait parler de lui en se rendant en juillet 2015 à Damas, où il a été reçu par Bachar al-Assad, bête noire de la diplomatie française. «Entre l'image de boucher et celui que j'ai rencontré, on ne doit pas parler du même homme»  avait-il ensuite déclaré au Figaro. "
+            
+            },{
+            "cardId": "14",
+            "cardImage": "sarko.jpg",
+            "cardTitre": "Nicolas Sarkozy ",
+            "cardSubtitle": "Prêt à tout pour prendre sa revanche", 
+           
+            "cardFilter1Display": "Les Républicains",
+            "cardFilter1Tri": "f-republicain",
+           
+            "cardFilter2Display": "35 ans",
+            "cardFilter2Tri": "f-plus-20",
+
+            "cardFilter3Display": "Homme",
+            "cardFilter3Tri": "f-homme",
+
+            "cardFilter4Display": "Non",
+            "cardFilter4Tri": "f-ena-non", 
+
+            "cardFilter5Display": "Non",
+            "cardFilter5Tri": "f-industrie-non",
+
+            "cardFilter6Display": "Très bon",
+            "cardFilter6Tri": "f-tres-bon",
+
+            "cardInfo1": "Né le 28 janvier 1955 à Paris ",
+            "cardInfo2": "En politique depuis la fin des années 1970",
+
+            "cardSection1Title": "Petite bio",
+            "cardSection1Text": "De son vrai nom Nicolas Sarközy de Nagy-Bocsa. Avocat d’affaires de formation, maire de Neuilly-sur-Seine en 1983 (il a 28 ans), élu député en 1988, ministre du Budget et porte-parole du gouvernement en 1993 sous Edouard Balladur, secrétaire général du RPR en 1997, ministre de l’Intérieur en 2002, de l’Economie en 2005, président de la république française de 2007 à 2012, président de l’UMP puis du mouvement Les Républicains  depuis 2014 (il quitte cette présidence le 22 août 2016 pour pouvoir participer aux primaires de la droite et du centre en novembre). ",
+           
+            "cardSection3Title": "Dans son programme",
+            "cardSection3Text": "Le titre de son livre-programme: «Tout pour la France». Identité, autorité, renforcement des frontières, réduction du regroupement familial, lutte contre le communautarisme (par ex l’interdiction du voile en entreprise ou des menus de substitution dans les cantines scolaires), remise en cause de l’automaticité du droit du sol... Mais aussi: suppression de l’Impôt de solidarité sur la fortune, baisse de l’impôt sur les successions, hausse de l’âge des retraites, rétablissement des heures supplémentaires défiscalisées, hausse du temps de présence des profs dans les écoles… ",
+            "cardSection4Title": "En rade ou en vogue?",
+            "cardSection4Text": "En vogue. Il peut compter sur l’appareil politique de son parti, avec son argent, ses listes de militants, et ses réseaux. A peine sa candidature annoncée, son score a bondi dans les sondages - tout en restant derrière celui d'Alain Juppé. Sa maîtrise des médias est redoutable. ",
+            "cardSection5Title": "Principal ennemi",
+            "cardSection5Text": " Alain Juppé, en tête dans les sondages, qui ratisse au centre-droit. Mais aussi son challenger Jean-François Copé, à qui il s‘oppose violemment dans l’affaire Bygmalion (financement illégal de sa campagne de 2012).",
+
+            "cardSection6Title": "Casseroles",
+            "cardSection6Text": "Il n’a pas été réélu à l’issue de sa présidence en 2012; son style clivant d’«hyperprésident » et ses déclarations à l’emporte-pièce («Casse-toi, pôv con »); les multiples affaires où son nom est impliqué (affaire Bettencourt, affaire Bygmalion…); ses mises en examen  (affaire des écoutes, affaire Bygmalion). Enfin il avait promis en mai 2012: «Je ne ferai plus jamais de politique»..."
+            
+            }
+            
+        ]
+}
