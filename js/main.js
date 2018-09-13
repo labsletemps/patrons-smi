@@ -118,7 +118,7 @@ jQuery(document).ready(function($)
 			console.log('getCardData()');
 			if(cardName){
 				for(var item of response.cards){
-					if( item['parameter'] == cardName ){
+					if( item['parameter'] == cardName ){ 
 						cardObject = item;
 						break;
 					}
@@ -131,7 +131,7 @@ jQuery(document).ready(function($)
 					}
 				}
 				//history.pushState({urlPath:'?portrait=' + cardObject.parameter},"Test",'?portrait=' + item.parameter)
-				history.pushState({urlPath:'/portrait=' + cardObject.parameter + '.html'},cardObject.cardTitre,BASE_URL+'/portrait/' + item.parameter + '.html')
+				// history.pushState({urlPath:'/portrait=' + cardObject.parameter + '.html'},cardObject.cardTitre,BASE_URL+'/portrait/' + item.parameter + '.html')
 				updateShareButtons(cardObject.parameter);
 				currentCard = item.cardId;
 				console.log(currentCard);
