@@ -7,6 +7,9 @@ jQuery(document).ready(function($)
 	/*
 	 1 - INIT
 	*/
+	// compile templates once
+	var card_source;
+	var card_template;
 
 	var currentCard; //, targetCard;
 	var MIN_CARD_ID = 1;
@@ -33,12 +36,14 @@ jQuery(document).ready(function($)
 		$('.open-menu').removeClass('is-white');
 	});
 
+	/*
+	 2 - OVERLAY
+ 	*/
+	var $overlayContent = $('.overlay-content');
+	var	$aside = $('aside');
 
-
-	var $overlayContent = $('.overlay-content'),
-		$aside = $('aside');
 	$(".overlay-content .start").on('click', function() {
-		//alert('dsdsd');
+
 		$overlayContent.addClass('is-hidden');
 		setTimeout(function()
 		{
@@ -57,15 +62,13 @@ jQuery(document).ready(function($)
 		}, 300);
 	});
 
-
 	/*
 		3 - LOAD JSON
 	*/
 	$.getJSON( "json/data.json", function(response) {
-  	//console.log( "success" );
-  	displayCards(response);
-  	//console.log(response);
 		var cardObject;
+
+		displayCards(response);
 
 		function getCardById(cardId){
 			$.each(response.cards, function(key, item){
@@ -91,34 +94,21 @@ jQuery(document).ready(function($)
 			var html = template(cardObject);
 			$( ".visualisator" ).html(html);
 			currentCard = cardObject.cardId;
-			//alert(cardId);
-
 		});
 
 		/*
-			5 - DISPLAY CARDS
-			inside getJSON to enable prev/next interactions
+			4 - OPEN MODAL
 		*/
+		function openModal(){
+				var reader = $('.reader');
+				var visualisator = $('.visualisator');
 
-		function displayCards(arr) {
-			var source = $("#card-template").html();
-			var template = Handlebars.compile(source);
-
-			var html = template({cards:arr.cards});
-				$( ".content" ).html(html);
-
-			var reader = $('.reader');
-			var	content = $('.content');
-			var visualisator = $('.visualisator');
-
-			$(".card").not('.na').on('click', function() {
 				$('html, body').animate({
 			       scrollTop:$('.content').offset().top
-			    }, 300);
-
-			    $('.open-menu').css('display', 'none');
-
+			  }, 300);
+ 				$('.open-menu').css('display', 'none');
 				$('.content, aside').fadeOut();
+
 				reader.css('display', 'block');
 				setTimeout(function()
 				{
@@ -126,7 +116,6 @@ jQuery(document).ready(function($)
 				}, 10);
 
 				reader.prepend('<svg class="close-article" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="81px" viewBox="0 0 81 81" enable-background="new 0 0 81 81" xml:space="preserve"><rect class="bg" fill="#D4D926" width="81" height="81"/><rect class="cross" x="14.551" y="39.344" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -16.7757 40.5)" fill="#FFFFFF" width="51.898" height="2.312"/><rect class="cross" x="14.551" y="39.344" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 40.5 97.7757)" fill="#FFFFFF" width="51.898" height="2.312"/></svg>');
-
 
 				setTimeout(function()
 				{
@@ -183,11 +172,32 @@ jQuery(document).ready(function($)
 								var html = template(cardObject);
 								$( ".visualisator" ).html(html);
 								//getCardData( currentCard.toString(), null );
+								openModal();
 								$("html, body").animate({ scrollTop: 0 }, "fast");
 							}, 200);
 						});
 					});
 				}, 300);
+		}
+
+		/*
+			5 - DISPLAY CARDS
+			inside getJSON to enable prev/next interactions
+		*/
+		function displayCards(arr) {
+			// TODO test if worth it
+			if(!card_source || !card_template){
+				card_source = $("#card-template").html();
+				card_template = Handlebars.compile(card_source);
+			}else{
+				console.log('xx')
+			}
+			var html = card_template({cards:arr.cards});
+
+			$( ".content" ).html(html);
+
+			$(".card").not('.na').on('click', function() {
+				openModal();
 			});
 
 			$(window).load(function(){
@@ -196,7 +206,7 @@ jQuery(document).ready(function($)
 				  itemSelector: '.card'
 				});
 			}, function(){
-				content.hide();
+				$('.content').hide();
 			});
 
 		} // end displayCards()
