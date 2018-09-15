@@ -2,6 +2,15 @@
 const jQuery = window.jQuery;
 const Handlebars = window.Handlebars;
 
+/*
+	TODO
+	* nxt button after user lands on specific page
+	* name nameThis
+	* add error handlers
+	* add URL rewriting again
+	...
+*/
+
 jQuery(document).ready(function($)
 {
 	/*
@@ -11,7 +20,7 @@ jQuery(document).ready(function($)
 	var card_source;
 	var card_template;
 
-	var currentCard; //, targetCard;
+	var currentCard, targetCard;
 	var MIN_CARD_ID = 1;
 	var MAX_CARD_ID = 100;
 	// var BASE_URL = 'https://labs.letemps.ch/interactive/2018/_digital-shapers/';
@@ -42,8 +51,8 @@ jQuery(document).ready(function($)
 	var $overlayContent = $('.overlay-content');
 	var	$aside = $('aside');
 
-	$(".overlay-content .start").on('click', function() {
-
+	// Masquer l’overlay si clic sur «Démarrer» ou partage d’une card spécifique
+	function hideOverlay(){
 		$overlayContent.addClass('is-hidden');
 		setTimeout(function()
 		{
@@ -60,6 +69,19 @@ jQuery(document).ready(function($)
 				}, 300);
 			});
 		}, 300);
+	}
+
+	// Card spécifique en paramètre de l’URL?
+	var targetCardMatch = $(location).attr('href').match(/.*portrait=([a-z-]*).*?/);
+	if (targetCardMatch) {
+		if (targetCardMatch.length > 0){
+			targetCard = targetCardMatch[1];
+			hideOverlay();
+		}
+	}
+
+	$(".overlay-content .start").on('click', function() {
+		hideOverlay();
 	});
 
 	/*
@@ -70,9 +92,35 @@ jQuery(document).ready(function($)
 
 		displayCards(response);
 
+		// TODO name this func
+		// (dry and stuff...)
+		function nameThis(){
+			$('.visualisator').animate({
+				opacity: 0
+			}, 200, function(){
+				setTimeout(function(){
+					getCardById(currentCard);
+					var html = template(cardObject);
+					$( ".visualisator" ).html(html);
+					//getCardData( currentCard.toString(), null );
+					openModal();
+					$("html, body").animate({ scrollTop: 0 }, "fast");
+				}, 200);
+			});
+		}
+
 		function getCardById(cardId){
 			$.each(response.cards, function(key, item){
 				if(item.cardId == cardId) {
+					cardObject = item;
+					return;
+				}
+			});
+		}
+
+		function getCardByName(name){
+			$.each(response.cards, function(key, item){
+				if(item.parameter == name) {
 					cardObject = item;
 					return;
 				}
@@ -150,32 +198,26 @@ jQuery(document).ready(function($)
 
 					});
 
+					function getFilteredCard(increment){
+						var i;
+						for (i = 0; i<100; i++){
+							currentCard += increment;
+							if (currentCard > MAX_CARD_ID){
+								currentCard = MIN_CARD_ID;
+							}
+							if( $("div.card[data-cardid='" + currentCard +"']").css('display') == 'block'){
+								// Le resultat est bien dans les filtres => on s'arrete et on ouvre la fiche
+								return;
+							}
+						}
+						// TODO: add error handler
+					}
+
+
 					// Prev / next buttons
 					$('.nextCard').click(function(){
-						// TODO next card...
-						$('.visualisator').animate({
-							opacity: 0
-						}, 200, function(){
-							var i;
-							for (i = 0; i<100; i++){
-								currentCard += 1;
-								if (currentCard > MAX_CARD_ID){
-									currentCard = MIN_CARD_ID;
-								}
-								if( $("div.card[data-cardid='" + currentCard +"']").css('display') == 'block'){
-									// Le resultat est bien dans les filtres => on s'arrete et on ouvre la fiche
-									break;
-								}
-							}
-							setTimeout(function(){
-								getCardById(currentCard);
-								var html = template(cardObject);
-								$( ".visualisator" ).html(html);
-								//getCardData( currentCard.toString(), null );
-								openModal();
-								$("html, body").animate({ scrollTop: 0 }, "fast");
-							}, 200);
-						});
+						getFilteredCard(1);
+						nameThis();
 					});
 				}, 300);
 		}
@@ -186,11 +228,11 @@ jQuery(document).ready(function($)
 		*/
 		function displayCards(arr) {
 			// TODO test if worth it
-			if(!card_source || !card_template){
+			if(!card_source || !card_template){
 				card_source = $("#card-template").html();
 				card_template = Handlebars.compile(card_source);
 			}else{
-				console.log('xx')
+				console.log('card template already compiled')
 			}
 			var html = card_template({cards:arr.cards});
 
@@ -210,6 +252,12 @@ jQuery(document).ready(function($)
 			});
 
 		} // end displayCards()
+
+		// User lands directly on card
+		if (targetCard){
+			getCardByName(targetCard);
+			nameThis();
+		}
 	}); // end getJSON
 
 
