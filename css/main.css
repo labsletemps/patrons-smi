@@ -431,11 +431,11 @@ div.reader div.visualisator div.visualisator-body .btn.previous {
 div.reader div.visualisator div.visualisator-body .btn.next {
   float: right;
 }
-.btn 
+.btn
 {
   border-radius: 3px;
 }
-.btn-close 
+.btn-close
 {
   margin: auto;
 }
@@ -953,13 +953,6 @@ div.filter6-btn-grp div.btn:hover {
 div.filter6-btn-grp div.btn.is-active {
   background: #a91a8a;
   color: white
-}
-
-div#debug{
-  background: #000;
-  color: #eee;
-  font-family: monospace;
-  padding: 1em;
 }
 
 p.linkedin{
