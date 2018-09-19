@@ -1,6 +1,7 @@
 // prevent no-undef warning
 const jQuery = window.jQuery;
 const Handlebars = window.Handlebars;
+var currentCard, targetCard;
 
 /*
 	TODO
@@ -20,11 +21,14 @@ jQuery(document).ready(function($)
 	var card_source;
 	var card_template;
 
-	var currentCard, targetCard;
 	var MIN_CARD_ID = 1;
 	var MAX_CARD_ID = 100;
-	// var BASE_URL = 'https://labs.letemps.ch/interactive/2018/_digital-shapers/';
-	// var URL_TRAIL = 'digital_shapers';
+
+	var BASE_URL = 'https://labs.letemps.ch/interactive/2018/_digital-shapers/';
+	if( document.location.href.indexOf('local') > 0 ){
+		BASE_URL = 'http://n-az30103.local:5757/'
+	}
+	var URL_TRAIL = 'digital_shapers';
 
 	setTimeout(function()
 	{
@@ -45,6 +49,23 @@ jQuery(document).ready(function($)
 		$('.open-menu').removeClass('is-white');
 	});
 
+	// Share buttons individuels
+	function updateShareButtons(parameter){
+		console.log('update share')
+		$('.brand-social-wrapper a').each(function(){
+			var link = $(this).attr('href');
+			if(targetCard){
+				// replace page id parameter
+				link = link.replace('portrait='+parameter, 'portrait='+parameter)
+				// link = link.replace('portrait/'+parameter, 'portrait/'+parameter)
+			}else{
+				// add page id parameter
+				link = link.replace(URL_TRAIL, URL_TRAIL + '?portrait='+parameter)
+				// link = link.replace(URL_TRAIL, URL_TRAIL + '/portrait/'+parameter)
+			}
+			$(this).attr('href', link);
+		});
+	}
 	/*
 	 2 - OVERLAY
  	*/
@@ -93,8 +114,8 @@ jQuery(document).ready(function($)
 		displayCards(response);
 
 		// TODO name this func
-		// (dry and stuff...)
 		function nameThis(){
+			console.log('namethis')
 			$('.visualisator').animate({
 				opacity: 0
 			}, 200, function(){
@@ -102,7 +123,6 @@ jQuery(document).ready(function($)
 					getCardById(currentCard);
 					var html = template(cardObject);
 					$( ".visualisator" ).html(html);
-					//getCardData( currentCard.toString(), null );
 					openModal();
 					$("html, body").animate({ scrollTop: 0 }, "fast");
 				}, 200);
@@ -122,6 +142,7 @@ jQuery(document).ready(function($)
 			$.each(response.cards, function(key, item){
 				if(item.parameter == name) {
 					cardObject = item;
+					currentCard = item.cardId;
 					return;
 				}
 			});
@@ -165,15 +186,41 @@ jQuery(document).ready(function($)
 
 				reader.prepend('<svg class="close-article" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="81px" viewBox="0 0 81 81" enable-background="new 0 0 81 81" xml:space="preserve"><rect class="bg" fill="#D4D926" width="81" height="81"/><rect class="cross" x="14.551" y="39.344" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -16.7757 40.5)" fill="#FFFFFF" width="51.898" height="2.312"/><rect class="cross" x="14.551" y="39.344" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 40.5 97.7757)" fill="#FFFFFF" width="51.898" height="2.312"/></svg>');
 
+				var hiddenLinks = 0;
+				$('a.story-link, a.linkedin-link').each(function(){
+					if (! $(this).attr('href') ){
+						hiddenLinks += 1;
+						$(this).parent().hide();
+					}
+				});
+				console.log(hiddenLinks);
+				if (hiddenLinks == 2) {
+					$('h6.related-links').hide();
+				}
+
 				setTimeout(function()
 				{
 					visualisator.css("opacity", "1");
 
+					updateShareButtons(cardObject.parameter);
+
 					// NOTE Add event handlers after a timeout
+					/*
+					// TODO: try-catch push history
+					*/
+					if(history.pushState) {
+						try{
+							//history.pushState({"id":100}, document.title, BASE_URL + '?portrait=' + cardObject.parameter);
+							history.pushState({"id":100}, document.title, BASE_URL + '/portrait/' + item.parameter + '.html');
+						}catch(error){
+							// TODO
+						}
+					}
 
 					$('.readMore').click(function(){
 						$('.readMore').hide();
-						$('.collapsed-text').slideDown(600);
+						// $('.collapsed-text').slideDown(600);
+						$('.collapsed-text').show(600);
 					});
 
 					// Perform close when EITHER button is clicked/touched
@@ -202,10 +249,15 @@ jQuery(document).ready(function($)
 						var i;
 						for (i = 0; i<100; i++){
 							currentCard += increment;
-							if (currentCard > MAX_CARD_ID){
+							if (currentCard > MAX_CARD_ID) {
 								currentCard = MIN_CARD_ID;
+							}else if (currentCard < MIN_CARD_ID) {
+								currentCard = MAX_CARD_ID;
 							}
-							if( $("div.card[data-cardid='" + currentCard +"']").css('display') == 'block'){
+							if( $.isEmptyObject(filters) ){
+								// Pas de filtre
+								return;
+							}else if( $("div.card[data-cardid='" + currentCard +"']").css('display') == 'block' ){
 								// Le resultat est bien dans les filtres => on s'arrete et on ouvre la fiche
 								return;
 							}
@@ -219,7 +271,14 @@ jQuery(document).ready(function($)
 						getFilteredCard(1);
 						nameThis();
 					});
+
+					$('.previousCard').click(function(){
+						getFilteredCard(-1);
+						nameThis();
+					});
 				}, 300);
+
+
 		}
 
 		/*
@@ -257,6 +316,7 @@ jQuery(document).ready(function($)
 		if (targetCard){
 			getCardByName(targetCard);
 			nameThis();
+			targetCard = null;
 		}
 	}); // end getJSON
 
@@ -296,6 +356,22 @@ jQuery(document).ready(function($)
 	// 	$filterValue = concatValues( filters );
 	// 	$('.content').isotope({ filter: $filterValue });
 	// });
+	$(".filter1-btn-grp .btn").on('click', function() {
+	  $(".filter1-btn-grp .btn").removeClass('is-active');
+	  $(this).addClass('is-active');
+	  $(this).parent().parent().find('span').show();
+	  var filter = $(this).attr('data-filter');
+	  filters['filter1-btn-grp'] = filter;
+	  $filterValue = concatValues( filters );
+	  $('.content').isotope({ filter: $filterValue });
+	});
+	$(".filter1 h4 span").on('click', function() {
+		$(this).parent().parent().find('.btn').removeClass('is-active');
+		$(this).hide();
+		filters['filter1-btn-grp'] = undefined;
+		$filterValue = concatValues( filters );
+		$('.content').isotope({ filter: $filterValue });
+	});
 
 	$(".filter2-btn-grp .btn").on('click', function() {
 		$(".filter2-btn-grp .btn").removeClass('is-active');

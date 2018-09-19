@@ -327,7 +327,7 @@ Helper classes
 div.reader {
   position: absolute;
   z-index: 2;
-  width: 900px;
+  width: 600px;
   /* width: 900px; when screen larger than 1400? */
   min-height: calc(100% - 57px);
   background: #fafafa;
@@ -344,6 +344,7 @@ div.reader {
   -webkit-overflow-scrolling: touch;
   display: none
 }
+
 @media (max-width: 930px) {
   div.reader {
     width: 100%;
@@ -505,6 +506,15 @@ div.reader div.visualisator div.visualisator-footer div.bonplan h2 {
 }
 div.reader div.visualisator div.visualisator-footer div.bonplan p {
   font-size: 1rem
+}
+
+@media (min-width: 1400px){
+  div.reader {
+    width: 900px;
+  }
+  div.reader div.visualisator div.visualisator-header{
+    height: 600px;
+  }
 }
 
 aside {
@@ -740,23 +750,13 @@ div.filter1-btn-grp {
   overflow: auto;
   margin-bottom: 1rem
 }
-div.filter1-btn-grp #slider-range-max {
-  margin: 4px 20px 9px 20px !important;
-  font-size: 0.6rem !important
-}
-div.filter1-btn-grp #slider-range-max span {
-  border: none;
-  border-radius: 50px;
-  background: #3fa9f5 !important;
-  border: 1px solid #3fa9f5 !important;
-  font-size: .8rem
-}
+
 div.filter1-btn-grp div.btn {
   cursor: pointer;
   width: 100%;
   float: left;
   font-family: 'Oswald';
-  color: #b3b3b3;
+  color: white;
   padding: 7px 20px;
   background-image: transparent;
   -webkit-font-smoothing: antialiased;
@@ -955,30 +955,14 @@ div.filter6-btn-grp div.btn.is-active {
   color: white
 }
 
-p.linkedin{
+p.story-link{
   margin-bottom: 0;
 }
-p.news-link{
+p.linkedin-link{
   margin-top: 0;
 }
-p.news-link::before{
-  content: '\f1ea';
-  color: #b80021;
-  font-family: "FontAwesome";
-  font-size: 120%;
-  margin-right: 4px;
-  min-width: 30px;
-}
-p.linkedin::before {
-  content: '\f0e1';
-  color: #0073b1;
-  font-family: "FontAwesome";
-  font-size: 160%;
-  margin-right: 4px;
-  min-width: 30px;
-}
-p.linkedin:empty::before, p.news-link:empty::before {
-  display: none;
+p.related-link .fa-angle-right{
+  opacity: 0.5;
 }
 
 /* Links to previous / next portrait */

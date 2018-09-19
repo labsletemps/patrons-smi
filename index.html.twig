@@ -22,7 +22,7 @@
 	  		<div class="card {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
 				<div class="card-header">
 					<div class="new">NEW</div>
-					<img src="img/{{{cardImage}}}" alt="">
+					<img src="{{{cardImage}}}" alt="">
 				</div>
 				<div class="card-body">
 					<h2>{{{cardTitre}}}<br><span>{{{cardFilter1Display}}}</span></h2>
@@ -36,10 +36,9 @@
 
 	<script id="detail-template" type="text/x-handlebars-template">
 		{% verbatim %}
-			<div class="visualisator-header" style="background-image: url('img/{{{cardImage}}}');">
+			<div class="visualisator-header" style="background-image: url('{{{cardImage}}}');">
 				<div class="visualisator-header-box">
 					<h1>{{{cardTitre}}}</h1>
-					<h5>{{{cardSubtitle}}}</h5>
 				</div>
 			</div>
 			<div class="visualisator-body">
@@ -61,13 +60,16 @@
 					</p>
 				</div>
 
-				<h6>
+				<h6 class="related-links">
 					Ressources associées
 				</h6>
-				<p>
-					<i class="fa fa-angle-right" style="opacity: 0.5;"></i>&nbsp;&nbsp;<i class="fa fa-linkedin-square" style="color: #0073b1"></i>&nbsp;Consulter le profil LinkedIn de <a href="#" target="_blank">{{{cardTitre}}}</a> <br>
-					<i class="fa fa-angle-right" style="opacity: 0.5;"></i>&nbsp;&nbsp;<i class="fa fa-newspaper-o" style="color: #930025"></i>&nbsp;Lire l'article <a href="#" target="_blank">"ici Paris ouais"<a>
+				<p class="related-link story-link">
+					<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<i class="fa fa-newspaper-o" style="color: #930025"></i>&nbsp;Lire l'article <a class="story-link" href="{{{cardSection5Text}}}" target="_blank">{{{cardSection4Text}}}</a>
 				</p>
+				<p class="related-link linkedin-link">
+					<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<i class="fa fa-linkedin-square" style="color: #0073b1"></i>&nbsp;Consulter le profil LinkedIn de <a class="linkedin-link" href="{{{cardSection6Text}}}" target="_blank">{{{cardTitre}}}</a> <br>
+				</p>
+
 				<!--<p class="linkedin">
 					{{{cardSection5Text}}}
 				</p>
@@ -114,7 +116,7 @@
 					Digital Shapers 2018
 				</h3>
 				<p>
-					Le who is who de la Suisse numérique
+					<b>Les 100 qui font la Suisse du numérique</b>
 				</p>
 				<p>
 					Utilisez les filtres de la colonne de gauche pour trier les portraits.
@@ -134,11 +136,11 @@
 				Filtres
 			</h3>-->
 
-			<div class="filter2">
+			<div class="filter1">
 				<h4>
 					Par âge <span><i class="fa fa-close"></i>
 				</h4>
-				<div class="filter2-btn-grp" data-filter-group="theme">
+				<div class="filter1-btn-grp" data-filter-group="theme">
 					<div class="btn" data-filter=".f-moins-40">- de 40 ans</div>
 					<div class="btn" data-filter=".f-plus-40">40 ans et +</div>
 				</div>
@@ -149,9 +151,9 @@
 					Par région <span><i class="fa fa-close"></i>
 				</h4>
 				<div class="filter2-btn-grp" data-filter-group="theme">
-					<div class="btn" data-filter=".f-romand">Suisse romande</div>
-					<div class="btn" data-filter=".f-alemanique">Suisse alémanique</div>
-					<div class="btn" data-filter=".f-hors">Hors Suisse</div>
+					<div class="btn" data-filter=".f-romand">Suisse romands</div>
+					<div class="btn" data-filter=".f-alemanique">Suisse alémaniques</div>
+					<div class="btn" data-filter=".f-expat">Expats</div>
 				</div>
 			</div>
 
@@ -170,11 +172,36 @@
 					Par catégorie <span><i class="fa fa-close"></i>
 				</h4>
 				<div class="filter4-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-do-gooders">Bienfaiteurs</div>
+					<div class="btn" data-filter=".f-researchers">Chercheurs</div>
+					<div class="btn" data-filter=".f-creatives">Créatifs</div>
+					<div class="btn" data-filter=".f-expats">Expats</div>
+					<div class="btn" data-filter=".f-enabler">Facilitateurs</div>
+					<div class="btn" data-filter=".f-corporates">Grandes entreprises</div>
+					<div class="btn" data-filter=".f-investors">Investisseurs</div>
+					<div class="btn" data-filter=".f-tech-leaders">Leaders</div>
+					<div class="btn" data-filter=".f-serial-entrepreneurs">Serial entrepreneurs</div>
+					<div class="btn" data-filter=".f-unicorn-raisers">Éleveurs de licornes</div>
 
+					<!--
+					<div class="btn" data-filter=".f-corporates">Corporates</div>
+					<div class="btn" data-filter=".f-creatives">Creatives</div>
+					<div class="btn" data-filter=".f-do-gooders">Do-Gooders</div>
+					<div class="btn" data-filter=".f-enabler">Enabler</div>
+					<div class="btn" data-filter=".f-expats">Expats</div>
+					<div class="btn" data-filter=".f-investors">Investors</div>
+					<div class="btn" data-filter=".f-researchers">Researchers</div>
+					<div class="btn" data-filter=".f-serial-entrepreneurs">Serial Entrepreneurs</div>
+					<div class="btn" data-filter=".f-tech-leaders">Tech Leaders</div>
+					<div class="btn" data-filter=".f-unicorn-raisers">Unicorn raisers</div>
+				-->
+<!--
 					<div class="btn" data-filter=".f-precurseurs">Les précurseurs</div>
 					<div class="btn" data-filter=".f-creatifs">Les créatifs</div>
 					<div class="btn" data-filter=".f-grands-seigneurs">Les grands seigneurs</div>
 					<div class="btn" data-filter=".f-espoirs">Les espoirs</div>
+
+				-->
 				</div>
 			</div>
 
