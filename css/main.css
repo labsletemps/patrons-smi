@@ -46,7 +46,8 @@ h1 {
   margin-bottom: 0.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: inline-block
+  display: inline-block;
+  text-shadow: 1px 1px 8px rgba(0,0,0,.9);
 }
 @media (max-width: 500px) {
   h1 {
@@ -537,6 +538,9 @@ aside {
   padding: calc(57px + 3rem) 0 1rem 0;
   z-index: 1
 }
+aside h3 {
+  margin: .5em 0 .2em 0;
+}
 @media (max-width: 500px) {
   aside {
     -webkit-transform: translateX(-100%);
@@ -556,9 +560,6 @@ aside {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s
-  }
-  aside h3 {
-    display: none
   }
 }
 
@@ -678,6 +679,10 @@ div.card {
   float: left;
   cursor: pointer
 }
+div.no-card{
+  /* Contenus sans card: editorial, etc. */
+  display: none;
+}
 @media (max-width: 500px) {
   div.card {
     margin: 0 0 1rem 0;
@@ -686,30 +691,20 @@ div.card {
 }
 /* pour cesar */
 div.card-header div.new{
+  display: none;
+}
+div.card-header div.new.is-new{
   font-family: 'Oswald', serif;
-    display: block;
-    position: absolute;
-    color: white;
-    font-weight: 100;
-    font-size: 1.5em;
-    background: #ffa173;
-    left: 10px;
-    padding: 5px;
-    padding-top: 10px;
-    top: -5px;
-  /*font-family: 'Oswald', serif;
   display: block;
   position: absolute;
-  top: -2%;
-  left: -4%;
-  color: #ffa173;
-  font-weight: bold;
-  font-size: 2em;
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  transform: rotate(-10deg);*/
+  color: white;
+  font-weight: 100;
+  font-size: 1.5em;
+  background: #ffa173;
+  left: 10px;
+  padding: 5px;
+  padding-top: 10px;
+  top: -5px;
 }
 div.card:hover div.card-body {
   background: white
@@ -910,14 +905,17 @@ div.filter5-btn-grp div.btn.is-active {
   color: white
 }
 
-div.methodologie h4{
+div.about h4{
   color: #a91a8a;
   padding-top: 12px;
-  border-top: .2px solid #ccc;
 }
-div.methodologie p{
+div.about p{
   color: white;
-  padding: 0 20px;
+  padding: 0 20px 2px;
+  margin: 0 0 .5em 0;
+}
+div.about i{
+  min-width: 18px;
 }
 
 div.filter6 h4 {

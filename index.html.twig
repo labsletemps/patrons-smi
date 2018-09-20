@@ -19,9 +19,9 @@
 	<script id="card-template" type="text/x-handlebars-template">
 	{% verbatim %}
 		{{#each cards}}
-	  		<div class="card {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
+	  		<div class="card {{cardFilter0Tri}} {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
 				<div class="card-header">
-					<div class="new">NEW</div>
+					<div class="new {{isNew}}">NEW</div>
 					<img src="{{{cardImage}}}" alt="">
 				</div>
 				<div class="card-body">
@@ -44,6 +44,7 @@
 			<div class="visualisator-body">
 
 				<h2 class="pratique">
+					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;Catégorie: {{{cardFilter4DisplaySingular}}}<br>
 					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo1}}}<br>
 					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo2}}}
 				</h2>
@@ -94,6 +95,32 @@
 		{% endverbatim %}
 	</script>
 
+	<script id="detail-template-simple" type="text/x-handlebars-template">
+		{% verbatim %}
+			<div class="visualisator-body">
+
+				<h2>
+					{{{cardTitre}}}
+				</h2>
+				<p id="cardSection1">
+					{{{cardSection1Text}}}
+				</p>
+
+				<div class="collapsed-text">
+					<p>
+					{{{cardSection2Text}}}
+					</p>
+				</div>
+
+				<p class="close-article" style="cursor: pointer; display: inline-block; opacity: 0.5; margin-top: 50px; color: black;">
+					<i class="fa fa-close"></i>&nbsp;Fermer
+				</p>
+
+				<!--<div class="btn btn-close">Fermer</div>-->
+			</div>
+		{% endverbatim %}
+	</script>
+
 	<body style="padding-top: {{ navBarOffset }};">
 
 		{{ block('bar_brand') }}
@@ -132,9 +159,15 @@
 		</div>
 
 		<aside>
-			<!--<h3>
-				Filtres
-			</h3>-->
+			<div class="about">
+				<p><a href="#" data-cardid="200" class="btn open-details-simple"><i class="fa fa-info-circle" aria-hidden="true"></i> A propos</a></p>
+				<p><a href="#" data-cardid="300" class="btn open-details-simple"><i class="fa fa-bullhorn" aria-hidden="true"></i> Un regard sur l’avenir</a></p>
+				<p><a href="digital-shapers.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Version PDF</a></p>
+			</div>
+
+			<h3>
+				Filtrer
+			</h3>
 
 			<div class="filter1">
 				<h4>
@@ -175,13 +208,13 @@
 					<div class="btn" data-filter=".f-do-gooders">Bienfaiteurs</div>
 					<div class="btn" data-filter=".f-researchers">Chercheurs</div>
 					<div class="btn" data-filter=".f-creatives">Créatifs</div>
+					<div class="btn" data-filter=".f-unicorn-raisers">Éleveurs de licornes</div>
 					<div class="btn" data-filter=".f-expats">Expats</div>
 					<div class="btn" data-filter=".f-enabler">Facilitateurs</div>
 					<div class="btn" data-filter=".f-corporates">Grandes entreprises</div>
 					<div class="btn" data-filter=".f-investors">Investisseurs</div>
 					<div class="btn" data-filter=".f-tech-leaders">Leaders</div>
 					<div class="btn" data-filter=".f-serial-entrepreneurs">Serial entrepreneurs</div>
-					<div class="btn" data-filter=".f-unicorn-raisers">Éleveurs de licornes</div>
 
 					<!--
 					<div class="btn" data-filter=".f-corporates">Corporates</div>
@@ -217,12 +250,6 @@
 				</div>
 			</div>
 
-			<div class="methodologie">
-				<h4>
-					Méthodologie
-				</h4>
-				<p>Phrase explicative sur 1-2 lignes (penser mobile) <a href="#">Plus…</a></p>
-			</div>
 
 			<h3 class="close-menu">
 				Fermer
