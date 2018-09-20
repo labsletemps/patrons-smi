@@ -30,7 +30,7 @@ $app = new stdClass();
 $host = $_SERVER['HTTP_HOST'];
 $uri = $_SERVER['REQUEST_URI'];
 
-$app->url = 'http://' . $host . $uri;
+$app->url = 'https://' . $host . $uri;
 $variables = array_merge($variables, array('app' => $app));
 
 
