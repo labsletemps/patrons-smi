@@ -2,7 +2,7 @@
 	"title": "Digital Shapers 2018",
 	"description": "Le who is who de la Suisse numérique",
 	"authors": "",
-	"imgSocial": "social.jpg",
+	"imgSocial": "img/social.jpg",
 
 	"navBarStyle": "normal",
 	"navBarOffset": "0",
@@ -10,6 +10,6 @@
 
 	"partner": {
 		"logo": "img/empty.png",
-		"link": "http://www.letemps.ch"
+		"link": "https://www.letemps.ch"
 	}
 }
