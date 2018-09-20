@@ -6,7 +6,7 @@ var currentCard, targetCard;
 /*
 	TODO
 	* nxt button after user lands on specific page
-	* name nameThis
+	* name prepareModal
 	* add error handlers
 	* add URL rewriting again
 	...
@@ -28,7 +28,7 @@ jQuery(document).ready(function($)
 	if( document.location.href.indexOf('local') > 0 ){
 		BASE_URL = 'http://n-az30103.local:5757/'
 	}
-	var URL_TRAIL = 'digital_shapers';
+	var URL_TRAIL = 'digital-shapers/';
 
 	setTimeout(function()
 	{
@@ -50,19 +50,29 @@ jQuery(document).ready(function($)
 	});
 
 	// Share buttons individuels
+	function setShareLinks(parameter, name) {
+	    var pageUrl = encodeURIComponent(BASE_URL + 'portrait-' + parameter + '.html');
+	    var tweet = encodeURIComponent(name + ' | Digital Shapers 2018');
+			console.log(pageUrl);
+			$('.brand-social-wrapper a.facebook').attr('href', 'https://www.facebook.com/sharer.php?u=' + pageUrl);
+			$('.brand-social-wrapper a.twitter').attr('href', "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet);
+			$('.brand-social-wrapper a.linkedin').attr('href', "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl);
+	}
+
 	function updateShareButtons(parameter){
-		console.log('update share')
 		$('.brand-social-wrapper a').each(function(){
 			var link = $(this).attr('href');
+			// TODO: use canonical url + custom title
 			if(targetCard){
 				// replace page id parameter
-				link = link.replace('portrait='+parameter, 'portrait='+parameter)
-				// link = link.replace('portrait/'+parameter, 'portrait/'+parameter)
+				// link = link.replace('portrait='+parameter, 'portrait='+parameter)
+				link = link.replace('portrait-'+parameter, 'portrait-' + parameter)
 			}else{
 				// add page id parameter
-				link = link.replace(URL_TRAIL, URL_TRAIL + '?portrait='+parameter)
-				// link = link.replace(URL_TRAIL, URL_TRAIL + '/portrait/'+parameter)
+				// link = link.replace(URL_TRAIL, URL_TRAIL + '?portrait='+parameter)
+				link = link.replace(URL_TRAIL, URL_TRAIL + '/portrait-' + parameter + '.html')
 			}
+			console.log('Update share link > ' + link);
 			$(this).attr('href', link);
 		});
 	}
@@ -93,7 +103,8 @@ jQuery(document).ready(function($)
 	}
 
 	// Card spécifique en paramètre de l’URL?
-	var targetCardMatch = $(location).attr('href').match(/.*portrait=([a-z-]*).*?/);
+	// var targetCardMatch = $(location).attr('href').match(/.*portrait=([a-z-]*).*?/);
+	var targetCardMatch = $(location).attr('href').match(/.*portrait-([a-z-]*)\.html.*?/);
 	if (targetCardMatch) {
 		if (targetCardMatch.length > 0){
 			targetCard = targetCardMatch[1];
@@ -113,9 +124,7 @@ jQuery(document).ready(function($)
 
 		displayCards(response);
 
-		// TODO name this func
-		function nameThis(){
-			console.log('namethis')
+		function prepareModal(){
 			$('.visualisator').animate({
 				opacity: 0
 			}, 200, function(){
@@ -151,6 +160,7 @@ jQuery(document).ready(function($)
   	// FAIT LE LIEN ENTRE LE DATA-CARDID ET LE BON GROUPE JSON
   	var source   = $("#detail-template").html();
 		var template = Handlebars.compile(source);
+
 		$(".card").on('click', function() {
 			// SCROLL TO AN ELEMENT FUNCTION
 			var cardId = $(this).data('cardid');
@@ -163,6 +173,23 @@ jQuery(document).ready(function($)
 			var html = template(cardObject);
 			$( ".visualisator" ).html(html);
 			currentCard = cardObject.cardId;
+		});
+
+		$(".open-details-simple").on('click', function() {
+			var cardId = $(this).data('cardid');
+			var source_simple   = $("#detail-template-simple").html();
+			var template_simple = Handlebars.compile(source_simple);
+
+			$.each(response.cards, function(key, item){
+				if(item.cardId == cardId) {
+					cardObject = item;
+					return;
+				}
+			});
+			var html = template_simple(cardObject);
+			$( ".visualisator" ).html(html);
+			currentCard = cardObject.cardId;
+			openModal();
 		});
 
 		/*
@@ -193,7 +220,6 @@ jQuery(document).ready(function($)
 						$(this).parent().hide();
 					}
 				});
-				console.log(hiddenLinks);
 				if (hiddenLinks == 2) {
 					$('h6.related-links').hide();
 				}
@@ -202,21 +228,26 @@ jQuery(document).ready(function($)
 				{
 					visualisator.css("opacity", "1");
 
-					updateShareButtons(cardObject.parameter);
-
+					//updateShareButtons(cardObject.parameter);
+					setShareLinks(cardObject.parameter, cardObject.cardTitre);
 					// NOTE Add event handlers after a timeout
 					/*
 					// TODO: try-catch push history
 					*/
-					if(history.pushState) {
+					if ( (history.pushState) && (cardObject.parameter)) {
 						try{
 							//history.pushState({"id":100}, document.title, BASE_URL + '?portrait=' + cardObject.parameter);
-							history.pushState({"id":100}, document.title, BASE_URL + '/portrait/' + item.parameter + '.html');
+							history.pushState({"portrait": cardObject.parameter}, cardObject.cardTitre + ' | ' + document.title, 'portrait-' + cardObject.parameter + '.html');
 						}catch(error){
 							// TODO
+							console.log('Error when pushing history')
 						}
 					}
 
+					// TODO pour César
+					$('.bg').click(function(){
+						$('.close-article').trigger('click');
+					});
 					$('.readMore').click(function(){
 						$('.readMore').hide();
 						// $('.collapsed-text').slideDown(600);
@@ -225,6 +256,13 @@ jQuery(document).ready(function($)
 
 					// Perform close when EITHER button is clicked/touched
 					$(".close-article").click(function(){
+						try{
+							history.pushState({"portrait": null}, document.title, BASE_URL);
+						}catch(error){
+
+						}
+
+
 						if($(window).width() < 500)
 						{
 							$('.open-menu').css('display', 'block');
@@ -269,12 +307,12 @@ jQuery(document).ready(function($)
 					// Prev / next buttons
 					$('.nextCard').click(function(){
 						getFilteredCard(1);
-						nameThis();
+						prepareModal();
 					});
 
 					$('.previousCard').click(function(){
 						getFilteredCard(-1);
-						nameThis();
+						prepareModal();
 					});
 				}, 300);
 
@@ -315,7 +353,7 @@ jQuery(document).ready(function($)
 		// User lands directly on card
 		if (targetCard){
 			getCardByName(targetCard);
-			nameThis();
+			prepareModal();
 			targetCard = null;
 		}
 	}); // end getJSON
@@ -462,5 +500,33 @@ jQuery(document).ready(function($)
 		$filterValue = concatValues( filters );
 		$('.content').isotope({ filter: $filterValue });
 	});
+	/*
+		7 - EDITORIAL
+	*/
+	/*$( "#dialog-editorial" ).dialog({
+		autoOpen: false,
+		show: {
+			effect: "slide",
+			duration: 500
+		},
+		hide: {
+			effect: "slide",
+			duration: 500
+		}
+	});*/
 
+	$( "#open-editorial").on('click', function() {
+    $( "#dialog-editorial" ).dialog({
+      modal: true,
+			show: {
+				effect: "fade",
+				duration: 500
+			},
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );
 });
