@@ -269,9 +269,9 @@
 
     	<div class="brand-social-wrapper">
     		<!-- <div class="brand-button"><i class="fa fa-share-alt"></i></div> -->
-    		<a target="blank" href="https://www.linkedin.com/shareArticle?url={{ app.url }}&mini=true&title={{ title|url_encode }}&summary={{ description|url_encode }}&source={{ 'Le Temps'|url_encode }}"><span class="brand-button"><i class="fa fa-linkedin"></i></span></a>
-    		<a target="blank" href="https://twitter.com/intent/tweet?text={{ description ~ ' ' ~ app.url ~ ' '|url_encode }}&via=letemps"><span class="brand-button"><i class="fa fa-twitter"></i></span></a>
-    		<a target="blank" href="https://www.facebook.com/sharer.php?u={{ app.url }}&display=popup&ref=plugin&src=share_button"><span class="brand-button"><i class="fa fa-facebook"></i></span></a>
+    		<a class="linkedin" target="blank" href="https://www.linkedin.com/shareArticle?url={{ app.url }}&mini=true&title={{ title|url_encode }}&summary={{ description|url_encode }}&source={{ 'Le Temps'|url_encode }}"><span class="brand-button"><i class="fa fa-linkedin"></i></span></a>
+    		<a class="twitter" target="blank" href="https://twitter.com/intent/tweet?text={{ description ~ ' ' ~ app.url ~ ' '|url_encode }}&via=letemps"><span class="brand-button"><i class="fa fa-twitter"></i></span></a>
+    		<a class="facebook" target="blank" href="https://www.facebook.com/sharer.php?u={{ app.url }}&display=popup&ref=plugin&src=share_button"><span class="brand-button"><i class="fa fa-facebook"></i></span></a>
     	</div>
     </div>
 {% endblock %}
