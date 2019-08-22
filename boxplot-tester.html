@@ -1,0 +1,88 @@
+<!-- Code from d3-graph-gallery.com -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<!-- Create a div where the graph will take place -->
+<div id="chart-container">
+  <p><i class="fa fa-briefcase"></i> <span class="chart-title">Salaire 2018</span> en millions de francs</p>
+  <div class="chart" id="salaryChart"></div>
+
+  <p><i class="fa fa-hourglass"></i> <span class="chart-title">Ancienneté</span> </p>
+  <div class="chart" id="experienceYearsChart"></div>
+
+  <p><i class="fa fa-hourglass"></i> <span class="chart-title">Évolution de l’action</span> </p>
+  <div class="chart" id="stocksEvolutionChart"></div>
+
+  <p><i class="fa fa-hourglass"></i> <span class="chart-title">Employés</span> </p>
+  <div class="chart" id="employeesChart"></div>
+
+  <p><i class="fa fa-hourglass"></i> <span class="chart-title">Âge</span> </p>
+  <div class="chart" id="ageChart"></div>
+</div>
+
+
+<!-- Tooltip style -->
+<style>
+div.chart{
+  border: 1px solid #ccc;
+}
+span.chart-title, span.chart-value{
+  color: #333;
+  display: inline;
+  font-size: 1em;
+}
+span.chart-title{
+  font-size: 1.2em;
+}
+
+svg{
+  background: #eee;
+  margin-bottom: 5px;
+}
+
+.ceo{
+  fill: #ccc;
+  stroke-width: 1px;
+  stroke: #666;
+  opacity: 1;
+
+
+}
+.ceo.active{
+  fill: red;
+  opacity: 1;
+}
+.activeCeoLine{
+  stroke: red;
+  /* stroke-width: 1px; */
+}
+.activeCeoLabel{
+  font-size: 11px;
+}
+rect.moustache{
+  fill: #112b2a;
+  opacity: 0.1;
+  stroke: #000;
+}
+
+.tooltip {
+  font-size: .9em;
+  line-height: 1.2;
+  background-color: black;
+  // border: none;
+  // border-radius: 5px;
+  padding: 8px;
+  min-width: 100%;
+  max-width: 460px;
+  text-align: left;
+  color: white;
+}
+</style>
+
+
+<script src="js/d3-graphs.js">
+</script>
