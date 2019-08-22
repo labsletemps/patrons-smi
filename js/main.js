@@ -2,15 +2,7 @@
 const jQuery = window.jQuery;
 const Handlebars = window.Handlebars;
 var currentCard, targetCard;
-
-/*
-	TODO
-	* nxt button after user lands on specific page
-	* name prepareModal
-	* add error handlers
-	* add URL rewriting again
-	...
-*/
+var hideChartExplainer;
 
 jQuery(document).ready(function($)
 {
@@ -21,14 +13,13 @@ jQuery(document).ready(function($)
 	var card_source;
 	var card_template;
 
-	var MIN_CARD_ID = 1;
-	var MAX_CARD_ID = 100;
+	var MIN_CARD_ID = 0;
+	var MAX_CARD_ID = 19;
 
-	var BASE_URL = 'https://labs.letemps.ch/interactive/2018/_digital-shapers/';
+	var BASE_URL = 'https://labs.letemps.ch/interactive/2019/patrons-smi/';
 	if( document.location.href.indexOf('local') > 0 ){
 		BASE_URL = 'http://n-az30103.local:5757/'
 	}
-	var URL_TRAIL = 'digital-shapers/';
 
 	setTimeout(function()
 	{
@@ -52,30 +43,12 @@ jQuery(document).ready(function($)
 	// Share buttons individuels
 	function setShareLinks(parameter, name) {
 	    var pageUrl = encodeURIComponent(BASE_URL + 'portrait-' + parameter + '.html');
-	    var tweet = encodeURIComponent(name + ' | Digital Shapers 2018');
-			console.log(pageUrl);
+	    var tweet = encodeURIComponent(name + ' – Digital Shapers 2018');
 			$('.brand-social-wrapper a.facebook').attr('href', 'https://www.facebook.com/sharer.php?u=' + pageUrl);
 			$('.brand-social-wrapper a.twitter').attr('href', "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet);
 			$('.brand-social-wrapper a.linkedin').attr('href', "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl);
 	}
 
-	function updateShareButtons(parameter){
-		$('.brand-social-wrapper a').each(function(){
-			var link = $(this).attr('href');
-			// TODO: use canonical url + custom title
-			if(targetCard){
-				// replace page id parameter
-				// link = link.replace('portrait='+parameter, 'portrait='+parameter)
-				link = link.replace('portrait-'+parameter, 'portrait-' + parameter)
-			}else{
-				// add page id parameter
-				// link = link.replace(URL_TRAIL, URL_TRAIL + '?portrait='+parameter)
-				link = link.replace(URL_TRAIL, URL_TRAIL + '/portrait-' + parameter + '.html')
-			}
-			console.log('Update share link > ' + link);
-			$(this).attr('href', link);
-		});
-	}
 	/*
 	 2 - OVERLAY
  	*/
@@ -108,18 +81,26 @@ jQuery(document).ready(function($)
 	if (targetCardMatch) {
 		if (targetCardMatch.length > 0){
 			targetCard = targetCardMatch[1];
-			hideOverlay();
 		}
 	}
 
 	$(".overlay-content .start").on('click', function() {
 		hideOverlay();
+		// cookie to prevent multiple overlay displays
+		/*
+		var d = new Date();
+    d.setTime(d.getTime() + (15*1000*60*60*24)); // expires 15 days later
+    var expires = "expires=" + d.toGMTString();
+    window.document.cookie = "overlay-closed=closed; "+expires;
+		*/
 	});
 
 	/*
 		3 - LOAD JSON
 	*/
-	$.getJSON( "json/data.json", function(response) {
+	$.getJSON( "json/data.json?0", function(response) {
+		// Cacher overlay si cookie
+
 		var cardObject;
 
 		displayCards(response);
@@ -175,22 +156,7 @@ jQuery(document).ready(function($)
 			currentCard = cardObject.cardId;
 		});
 
-		$(".open-details-simple").on('click', function() {
-			var cardId = $(this).data('cardid');
-			var source_simple   = $("#detail-template-simple").html();
-			var template_simple = Handlebars.compile(source_simple);
 
-			$.each(response.cards, function(key, item){
-				if(item.cardId == cardId) {
-					cardObject = item;
-					return;
-				}
-			});
-			var html = template_simple(cardObject);
-			$( ".visualisator" ).html(html);
-			currentCard = cardObject.cardId;
-			openModal();
-		});
 
 		/*
 			4 - OPEN MODAL
@@ -213,38 +179,62 @@ jQuery(document).ready(function($)
 
 				reader.prepend('<svg class="close-article" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="81px" height="81px" viewBox="0 0 81 81" enable-background="new 0 0 81 81" xml:space="preserve"><rect class="bg" fill="#D4D926" width="81" height="81"/><rect class="cross" x="14.551" y="39.344" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -16.7757 40.5)" fill="#FFFFFF" width="51.898" height="2.312"/><rect class="cross" x="14.551" y="39.344" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 40.5 97.7757)" fill="#FFFFFF" width="51.898" height="2.312"/></svg>');
 
-				var hiddenLinks = 0;
-				$('a.story-link, a.linkedin-link').each(function(){
-					if (! $(this).attr('href') ){
-						hiddenLinks += 1;
-						$(this).parent().hide();
-					}
-				});
-				if (hiddenLinks == 2) {
-					$('h6.related-links').hide();
-				}
-
 				setTimeout(function()
 				{
+					var hiddenLinks = 0;
+					$('a.story-link, a.linkedin-link').each(function(){
+						if (! $(this).attr('href') ){
+							hiddenLinks += 1;
+							$(this).parent().hide();
+						}
+					});
+					if (hiddenLinks == 2) {
+						$('h6.related-links').hide();
+					}
+
 					visualisator.css("opacity", "1");
 
-					//updateShareButtons(cardObject.parameter);
 					setShareLinks(cardObject.parameter, cardObject.cardTitre);
+
+					// change card title color
+					$('div').find("[data-cardid='" + cardObject.cardId + "'] h2").css('color', '#ccc');
+
+					draw("salary", "millions de francs", cardObject.cardTitle);
+					// draw("age", "ans", cardObject.cardTitle);
+					draw("experienceYears", "ans", cardObject.cardTitle);
+			    draw("stocksEvolution", "%", cardObject.cardTitle);
+					draw("employees", "000 employés", cardObject.cardTitle);
+
+					/*var hideChartExplainer = localStorage.getItem("hideChartExplainer");
+					console.group('local storage')
+					console.log(hideChartExplainer)*/
+					if(hideChartExplainer == 1){
+						$('.chartExplainer').hide();
+						$('.hideChartExplainer').text('[Masquer]');
+					}
+
+					$('.hideChartExplainer').click(function(){
+						if(hideChartExplainer){
+							$('.chartExplainer').show();
+							$(this).text('[Masquer]');
+							hideChartExplainer = 0;
+						} else {
+							$('.chartExplainer').hide();
+							$(this).text('[Afficher]');
+							hideChartExplainer = 1;
+						}
+					});
+
 					// NOTE Add event handlers after a timeout
-					/*
-					// TODO: try-catch push history
-					*/
 					if ( (history.pushState) && (cardObject.parameter)) {
 						try{
 							//history.pushState({"id":100}, document.title, BASE_URL + '?portrait=' + cardObject.parameter);
-							history.pushState({"portrait": cardObject.parameter}, cardObject.cardTitre + ' | ' + document.title, 'portrait-' + cardObject.parameter + '.html');
+							history.pushState({"portrait": cardObject.parameter}, cardObject.cardTitre + ' – ' + document.title, 'portrait-' + cardObject.parameter + '.html');
 						}catch(error){
-							// TODO
-							console.log('Error when pushing history')
+							//
 						}
 					}
 
-					// TODO pour César
 					$('.bg').click(function(){
 						$('.close-article').trigger('click');
 					});
@@ -259,7 +249,7 @@ jQuery(document).ready(function($)
 						try{
 							history.pushState({"portrait": null}, document.title, BASE_URL);
 						}catch(error){
-
+							//
 						}
 
 
@@ -285,6 +275,7 @@ jQuery(document).ready(function($)
 
 					function getFilteredCard(increment){
 						var i;
+
 						for (i = 0; i<100; i++){
 							currentCard += increment;
 							if (currentCard > MAX_CARD_ID) {
@@ -292,6 +283,7 @@ jQuery(document).ready(function($)
 							}else if (currentCard < MIN_CARD_ID) {
 								currentCard = MAX_CARD_ID;
 							}
+
 							if( $.isEmptyObject(filters) ){
 								// Pas de filtre
 								return;
@@ -328,8 +320,6 @@ jQuery(document).ready(function($)
 			if(!card_source || !card_template){
 				card_source = $("#card-template").html();
 				card_template = Handlebars.compile(card_source);
-			}else{
-				console.log('card template already compiled')
 			}
 			var html = card_template({cards:arr.cards});
 
@@ -352,10 +342,17 @@ jQuery(document).ready(function($)
 
 		// User lands directly on card
 		if (targetCard){
+			hideOverlay();
 			getCardByName(targetCard);
 			prepareModal();
 			targetCard = null;
 		}
+
+		/*if ( document.cookie.search("overlay-closed") >= 0 ) {
+			setTimeout(function(){
+				hideOverlay();
+			}, 2000);
+		}*/
 	}); // end getJSON
 
 
@@ -500,33 +497,8 @@ jQuery(document).ready(function($)
 		$filterValue = concatValues( filters );
 		$('.content').isotope({ filter: $filterValue });
 	});
-	/*
-		7 - EDITORIAL
-	*/
-	/*$( "#dialog-editorial" ).dialog({
-		autoOpen: false,
-		show: {
-			effect: "slide",
-			duration: 500
-		},
-		hide: {
-			effect: "slide",
-			duration: 500
-		}
-	});*/
 
-	$( "#open-editorial").on('click', function() {
-    $( "#dialog-editorial" ).dialog({
-      modal: true,
-			show: {
-				effect: "fade",
-				duration: 500
-			},
-      buttons: {
-        Ok: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
+	if($(window).width() > 500){
+		particlesJS.load('particles-js', 'json/particlesjs-config.json');
+	}
 });
