@@ -9,4 +9,6 @@ Grâce à d3.js, des mini-graphiques avec boîtes à moustaches (box and whisker
 
 Basé sur le template «Trombinoscope» de notre [boîte à outils](https://labs.letemps.ch/toolbox/) ([aussi sur GitHub](https://github.com/labsletemps/toolbox-templates)), par César Greppin
 
+Pour générer une URL statique par portrait: [generate_pages.ipynb](generate_pages.ipynb)
+
 Code sous [licence MIT](LICENCE.txt)
