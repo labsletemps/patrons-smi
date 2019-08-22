@@ -11,4 +11,6 @@ Basé sur le template «Trombinoscope» de notre [boîte à outils](https://labs
 
 Pour générer une URL statique par portrait: [generate_pages.ipynb](generate_pages.ipynb)
 
+Sous le capot: Handlebars, d3js, jQuery, Bootstrap, Fontawesome, Composer, CodeKit, particlesjs
+
 Code sous [licence MIT](LICENCE.txt)
