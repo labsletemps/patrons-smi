@@ -3,7 +3,7 @@ div.reader
 	position: absolute;
 	z-index: 2;
 	//width: calc(100% - 200px);
-	width: 600px;
+	width: 900px;
 	min-height: calc(100% - 57px);
 	background: rgba(250, 250, 250, 1);
 	top: 57px;
@@ -14,7 +14,7 @@ div.reader
 	display: none;
 
 
-	@include breakpoint(xs) {   
+	@include breakpoint(xs) {
 		width: 100%;
 		top: 40px;
 		min-height: calc(100% - 40px);
@@ -37,7 +37,7 @@ div.reader
 
 		div.visualisator-header
 		{
-			height: 400px;
+			height: 600px;
 			background-position: center center !important;
 			background-size: cover !important;
 			position: relative;
@@ -47,38 +47,70 @@ div.reader
 				position: absolute;
 				bottom: 0;
 				width: 100%;
-				
+
 				//background: red;
 				padding: 0 4rem;
 				//@include transform(translateY(-50%));
 
-				@include breakpoint(xs) {   
+				@include breakpoint(xs) {
 					padding: 2rem;
 			    }
 
+					h2, h3 //titres detail
+					{
+					    font-family: 'Oswald', serif;
+					    text-transform: uppercase;
+					    font-weight: bold;
+					    text-align: left;
+					    font-size: 3rem;
+					    color: $white;
+							padding-left: 0;
+					    margin-bottom: 0.5rem;
+					    -webkit-font-smoothing: antialiased;
+					    -moz-osx-font-smoothing: grayscale;
+					    //text-shadow: rgba(0, 0, 0, 0.6) 0 1px 8px, rgba(0, 0, 0, 0.6) 0px 0px 1px;
+					    text-shadow: 1px 1px 8px rgba(0,0,0,.9);
 
-				h5 
-				{
-					color: darken($white, 15%);
-					text-align: left;
-					font-size: 1.5rem;
-					border-bottom: none;
-					padding-bottom: 0;
-					margin-bottom: 2rem;
-					text-shadow: rgba(0, 0, 0, 0.6) 0 1px 8px, rgba(0, 0, 0, 0.6) 0px 0px 1px;
-				}
-				
+					    //background: $red-fr;
+					    display: inline-block;
+					    //padding: 0.5rem 1rem;
+
+					    @include breakpoint(xs) {
+					      font-size: 2.5rem;
+					    }
+					}
+					h3 //titres detail
+					{
+
+					    font-size: 2rem;
+					    margin-bottom: 1rem;
+
+					    @include breakpoint(xs) {
+					      font-size: 1.5rem;
+					    }
+					}
+
 			}
+		}
+
+		p.credit {
+			text-align: right;
+			margin-right: .5em;
 		}
 
 		div.visualisator-body
 		{
-			padding: 4rem;
+			padding: 1rem 4rem 2rem 4rem;
 
-			@include breakpoint(xs) {   
+			@include breakpoint(xs) {
 				padding: 2rem;
-		    }
+		  }
 
+			p.lead{
+				color: lighten($black, 40%);
+				font-weight: $bold;
+				font-size: 1.2em;
+			}
 			h2
 			{
 				text-align: left;
@@ -86,9 +118,11 @@ div.reader
 				padding: 0;
 				// color: lighten($black, 40%);
 				// margin-bottom: 1rem;
-
-
-
+			}
+			h3{
+				font-family: 'Source Serif pro';
+				font-weight: bold;
+				font-size: 1.4em;
 			}
 
 			h2.pratique
@@ -102,38 +136,55 @@ div.reader
 				line-height: 1.8rem;
 				color: $blue-fr;
 
-				@include breakpoint(xs) {   
+				@include breakpoint(xs) {
 					margin-bottom: 4rem;
 			    }
 			}
 
-			.btn 
+			.btn
 			{
 				display: table;
-				padding: 16px 20px 14px 20px;
-				color: $white;
-				background: #0071bc;
+    	  padding: 12px 15px 11px 14px;
+				color: $blue-fr;
+				background: $white;
 				//margin: auto;
-				margin-top: 2em;
-				font-size: 1.2rem;
-				line-height: 1.3;
-				border: 3px solid $white;
+				margin-top: 0.5em;
+				font-size: 1rem;
+		    line-height: 1.3;
+				border: 1px solid $blue-fr;
+				border-radius: 3px;
 				font-family: 'Poppins';
 				cursor: pointer;
 				text-transform: uppercase;
 
-				@include breakpoint(xs) {   
+				&.previous {
+					float: left;
+				}
+				&.next {
+					float: right;
+				}
+
+				@include breakpoint(xs) {
 			       font-size: 1.175em;
 			    }
 
-				&:hover 
+				&.disabled{
+					cursor: default;
+				}
+				&:hover
 				{
 					background: lighten($blue-fr, 5%);
+					color: $white;
 					//background: $red-fr;
 				}
 			}
+
+			div.links {
+				overflow: auto;
+			}
+
 		}
-		h1.titrebonsplans { text-shadow: none; text-align: left; padding: 3rem 4rem 0 4rem; background: $flash3; margin-bottom: -25px; @include breakpoint(xs) { padding: 2rem } }
+
 		div.visualisator-footer
 		{
 			padding: 4rem;
@@ -143,19 +194,19 @@ div.reader
 			justify-content: flex-start;
 			flex-wrap: wrap;
 
-			@include breakpoint(xs) {   
+			@include breakpoint(xs) {
 					padding: 2rem;
 			    }
 
 			div.bonplan
 			{
 				width: 30%;
-				float: left; 
+				float: left;
 				margin-bottom: 2rem;
 				margin-right: 3%;
 				//padding: 4rem 0 0 4rem;
 
-				@include breakpoint(xs) {   
+				@include breakpoint(xs) {
 					width: 100%;
 			    }
 
@@ -166,7 +217,7 @@ div.reader
 					padding: 0;
 				}
 
-				p 
+				p
 				{
 					font-size: 1rem;
 				}
@@ -182,7 +233,7 @@ aside
 	width: 255px;
 	height: 100%;
 	float: left;
-	background: $gray-dark-dark;
+	// background: $gray-dark-dark;
 	// background-image: url('../img/bg.png');
  //    background-position: center center;
  //    background-size: cover;
@@ -193,7 +244,8 @@ aside
 	padding: calc(57px + 3rem) 0 1rem 0;
 	z-index: 1;
 
-	@include breakpoint(xs) {   
+	@include breakpoint(xs) {
+		background: $gray-dark-dark;
         @include transform(translateX(-100%));
         z-index: 5;
         padding: calc(40px + 2rem) 0 1rem 0;
@@ -201,16 +253,16 @@ aside
         &.is-open
 	    {
 			@include transform(translateX(0));
-			@include transition(all 0.3s); 
-	    }  
+			@include transition(all 0.3s);
+	    }
 
-	    h3 
+	    h3
 	    {
 	    	display: none;
 	    }
     }
 
-    
+
 }
 
 div.content
@@ -226,11 +278,11 @@ div.content
 	top: 0;
 	right: 0;
 	//float: right;
-	padding: calc(57px + 2rem) 2rem 2rem calc(255px + 2rem); 
+	padding: calc(57px + 2rem) 2rem 2rem calc(255px + 2rem);
 	-webkit-overflow-scrolling: touch;
 
-	@include breakpoint(xs) {   
-        padding: calc(40px + 2rem) 2rem 2rem 2rem; 
+	@include breakpoint(xs) {
+        padding: calc(40px + 2rem) 2rem 2rem 2rem;
     }
 
 
@@ -240,12 +292,12 @@ div.content
 	// background-position: center center;
 }
 
-div.bg 
+div.bg
 {
 	width: 100%;
 	min-height: 100% !important;
 	position: fixed;
-	background-image: url(../img/overlay-bg3.jpg);
-	background-size: cover;
-	background-position: center center;
+	// background-image: url(../img/overlay-bg3.jpg);
+	// background-size: cover;
+	// background-position: center center;
 }

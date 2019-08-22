@@ -1,0 +1,111 @@
+div#chart-container{
+  font-family: 'Poppins';
+  font-size: .9em;
+  margin: 2em 0;
+
+  p {
+    // margin-top: .5em;
+    margin-bottom: .4em;
+    &.shares-and-options{
+      display: block;
+    }
+  }
+
+  .explainerContainer{
+    border: 1px solid #999;
+    border-width: 1px 0;
+    margin: 1.5em;
+    margin-top: .5em;
+    font-size: 1em;
+    padding: 1em;
+
+    span.hideChartExplainer{
+      color: $blue-fr;
+      font-size: .9em;
+      display: inline;
+      cursor: pointer;
+    }
+
+    p{
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+
+  span.chart-title, span.chart-value{
+    color: #333;
+    display: inline;
+    font-size: 1em;
+  }
+  span.chart-title{
+    font-size: 1.2em;
+  }
+
+  svg{
+    background: #eee;
+    margin-bottom: 3px;
+  }
+
+  .ceo{
+    fill: #ccc;
+    stroke-width: 1px;
+    stroke: #666;
+    opacity: 1;
+
+    &.active{
+      fill: red;
+      opacity: 1;
+    }
+  }
+  .activeCeoLabel{
+    font-size: 12px;
+  }
+  .activeCeoLine{
+    stroke: red;
+    /* stroke-width: 1px; */
+  }
+  line.medianLines{
+    stroke: #333;
+    stroke-width: 2px;
+    opacity: 0.7;
+  }
+  rect.moustache{
+    fill: #112b2a;
+    opacity: 0.1;
+    /* stroke: #000; */
+  }
+  rect.moustacheOuter{
+    fill: none;
+    stroke: #999;
+  }
+
+  text.xLabel{
+    font-size: 10px;
+  }
+
+  .tooltip {
+    font-size: .9em;
+    line-height: 1.2;
+    background-color: black;
+    // border: none;
+    // border-radius: 5px;
+    padding: 8px;
+    min-width: 100%;
+    max-width: 460px;
+    text-align: left;
+    color: white;
+
+    &.placeholder{
+      opacity: 1;
+    }
+
+    .tooltip-ceo{
+      color: #ddd;
+      font-weight: $bold;
+    }
+  }
+
+}
+// .card-body{
+//   display: none !important;
+// }

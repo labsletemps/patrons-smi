@@ -1,20 +1,20 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
 //=====================================================================//
 // COLORS
 //=====================================================================//
 $black:#000;
 $white:#fff;
-$twitter:#00aced; 
-$facebook:#3d5a98;    
- 
+$twitter:#00aced;
+$facebook:#3d5a98;
+
 $red-lt: #b80021;
 $red-lt-darker: #930025;
 
-$gray: #212121; 
-$gray-dark: #3d4c4f; 
+$gray: #212121;
+$gray-dark: #3d4c4f;
 $gray-dark-dark: #273032;
 
-$blue-fr: #0071bc;
+$blue-fr: #035084;
 $red-fr: #d63220;
 
 $flash1: #7ac943;
@@ -26,15 +26,15 @@ $flash3: #f7ae71;
 //=====================================================================//
 
 // headings
-//@include font-face("ratio_light", "../fonts/ratio_light", $file-formats: eot woff ttf svg); 
-//@include font-face("ratio_reg", "../fonts/ratio_reg", $file-formats: eot woff ttf svg); 
-  //@include font-face("ratio_medium", "../fonts/ratio_medium", $file-formats: eot woff ttf svg); 
-  //@include font-face("ratio_bold", "../fonts/ratio_bold", $file-formats: eot woff ttf svg); 
+//@include font-face("ratio_light", "../fonts/ratio_light", $file-formats: eot woff ttf svg);
+//@include font-face("ratio_reg", "../fonts/ratio_reg", $file-formats: eot woff ttf svg);
+  //@include font-face("ratio_medium", "../fonts/ratio_medium", $file-formats: eot woff ttf svg);
+  //@include font-face("ratio_bold", "../fonts/ratio_bold", $file-formats: eot woff ttf svg);
 
 // paragraphs
-  //@include font-face("rooney_light", "../fonts/rooney_light", $file-formats: eot woff ttf svg); 
-//@include font-face("rooney_medium", "../fonts/rooney_medium", $file-formats: eot woff ttf svg); 
-  //@include font-face("rooney_bold", "../fonts/rooney_bold", $file-formats: eot woff ttf svg); 
+  //@include font-face("rooney_light", "../fonts/rooney_light", $file-formats: eot woff ttf svg);
+//@include font-face("rooney_medium", "../fonts/rooney_medium", $file-formats: eot woff ttf svg);
+  //@include font-face("rooney_bold", "../fonts/rooney_bold", $file-formats: eot woff ttf svg);
 
 $light: 100;
 $regular: 400;
@@ -66,19 +66,19 @@ $zModal: 300;
   @if $class == xs {
     @media (max-width: 500px) { @content; }
   }
- 
+
   @else if $class == sm {
-    @media (max-width: 768px) { @content; } 
+    @media (max-width: 768px) { @content; }
   }
- 
+
   @else if $class == md {
     @media (max-width: 992px) { @content; }
   }
- 
+
   @else if $class == lg {
     @media (max-width: 1200px) { @content; }
   }
- 
+
   @else {
     @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }
@@ -92,63 +92,56 @@ $zModal: 300;
     transform: translateY(-50%);
 }
 
-html { background: #273032; color: #222; font-size: 15px !important; line-height: 1.4; height: 100%; overflow-x: hidden; 
+.visible-xs {
+  display: none;
+}
+@media (max-width: 500px) {
+  .visible-xs {
+    display: block;
+  }
+  .hidden-xs {
+    display: none;
+  }
+}
+
+html { background: #273032; color: #222; font-size: 15px !important; line-height: 1.4; height: 100%; overflow-x: hidden;
     @media screen and (max-width: 320px) {
         font-size: 13px !important;
     }
 }
-body 
-{ 
+body
+{
     height: 100%; background: #273032;
 }
 
-img { display:block; width: 100%; } 
+img { display:block; width: 100%; }
 
-h1 //titres detail
-{
-    font-family: 'Oswald', serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: left;
-    font-size: 4rem;
-    color: $white;
-    margin-bottom: 0.5rem;
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale;
-    //text-shadow: rgba(0, 0, 0, 0.6) 0 1px 8px, rgba(0, 0, 0, 0.6) 0px 0px 1px;
-    //background: $red-fr;   
-    display: inline-block;
-    //padding: 0.5rem 1rem;
 
-    @include breakpoint(xs) {   
-      font-size: 2.5rem;
-    }
-}
 
 h2 //titres cartes
 {
-    font-family: 'Source Serif Pro', serif; 
+    font-family: 'Source Serif Pro', serif;
     color: lighten($black, 25%);
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 1.2;
     text-align: center;
-    padding: 2rem 1rem 1rem 1rem;  
+    padding: 2rem 1rem 1rem 1rem;
 
-    span 
+    span
     {
       font-size: 0.9rem;
       text-transform: uppercase;
 
     }
 
-    @include breakpoint(xs) {   
+    @include breakpoint(xs) {
       font-size: 1.5rem;
     }
-    
+
 }
 
-h3 //titre filtre
+h3.filters, h3.popup-title //titre filtre
 {
     font-family: 'Oswald';
     text-transform: uppercase;
@@ -172,7 +165,7 @@ h4 //type filtre
     margin-bottom: 0.5rem;
     padding: 0 20px;
 
-    span 
+    span
     {
       float: right;
       //color: #930025;
@@ -191,11 +184,11 @@ h5 //thème de carte
   font-style: italic;
   text-align: center;
   padding-bottom: 2rem;
-  -webkit-font-smoothing: antialiased; 
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h6 
+h6
 {
     font-family: 'Poppins';
     text-shadow: rgba(0, 0, 0, 0.6) 0 1px 8px, rgba(0, 0, 0, 0.6) 0px 0px 1px;
@@ -204,19 +197,19 @@ h6
     font-weight: lighter;
     color: $white;
 
-    span 
+    span
     {
       font-weight: 600;
     }
 }
 
-p 
+p
 {
     font-size: 1rem;
     line-height: 1.6;
     margin: 0.85rem 0 1.5rem 0;
     font-family: 'Poppins';
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     span
@@ -233,7 +226,7 @@ p
     }
 }
 
-a 
+a
 {
     text-decoration: none;
     color: $flash2;
@@ -241,35 +234,90 @@ a
 
 blockquote
 {
-    &:before 
-    {
-        color: #ccc;
-        content: open-quote;
-        font-size: 60px;
-        line-height: 0.1em;
-        margin-right: 0;
-        vertical-align: -5px;
-        color: $red-lt-darker;        
+    width: 62%;
+    margin: auto;
+
+    @include breakpoint(lg) {
+        width: 80%;
+        line-height: 40px;
+        margin: 30px 10% 30px 10% !important;
     }
 
-    &:after 
+    p:first-child
     {
-        color: #ccc;
-        content: close-quote;
-        font-size: 60px;
-        line-height: 0.1em;
-        margin-right: 0.25em;
-        vertical-align: -5px;
-        color: $red-lt-darker;
+        color: lighten($black, 50%);
+        font-style: italic;
+        font-size: 30px;
+        line-height: 40px;
+        font-family: $regular;
+        font-weight: 400;
+        quotes: "«\0000a0" "\0000a0»";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-bottom: 0;
+
+        @include breakpoint(xs) {
+            font-size: 24px;
+            line-height: 36px;
+        }
+
+        &:before
+        {
+            color: #ccc;
+            content: open-quote;
+            font-size: 45px;
+            line-height: 0.1em;
+            margin-right: 0;
+            vertical-align: -2px;
+            color: $red-lt-darker;
+
+            @include breakpoint(xs) {
+                font-size: 30px;
+                vertical-align: -2px;
+            }
+        }
+
+        &:after
+        {
+            color: #ccc;
+            content: close-quote;
+            font-size: 45px;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -2px;
+            color: $red-lt-darker;
+
+            @include breakpoint(xs) {
+                font-size: 30px;
+                vertical-align: -2px;
+            }
+        }
+    }
+
+    p:nth-child(2)
+    {
+        font-family: $regular;
+        color: #505050;
+        font-size: 18px;
+        line-height: 17px;
+        margin-top: 6px;
+        text-align: right;
+
+        @include breakpoint(lg) {
+            text-align: left;
+        }
+
+        @include breakpoint(xs) {
+            margin-top: 15px;
+        }
     }
 }
 
-hr 
+
+hr
 {
     background: $red-lt-darker;
     height: 4px !important;
     width: 150px;
     border-radius: 3px;
 }
-
-
