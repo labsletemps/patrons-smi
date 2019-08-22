@@ -21,7 +21,7 @@
 		{{#each cards}}
 	  		<div class="card {{cardFilter0Tri}} {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
 				<div class="card-header">
-					<img src="img/teaser/{{{cardImage}}}.jpg" alt="">
+					<img src="img/teaser/{{{cardImage}}}.jpg" alt="{{cardTitle}}">
 				</div>
 				<div class="card-body">
 					<h2>{{{cardTitle}}}<br><span>{{{cardFilter5Display}}}</span></h2>
@@ -126,7 +126,7 @@
 		{{ block('bar_brand') }}
 
 		<div class="overlay">
-			<img class="logo-lt-blanc" src="img/logo-lt-blanc.svg" alt="">
+			<img class="logo-lt-blanc" src="img/logo-lt-blanc.svg" alt="Logo Le Temps">
 			<div class="spinner">
 				<div class="double-bounce1"></div>
 				<div class="double-bounce2"></div>
