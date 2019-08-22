@@ -6,7 +6,7 @@
 
 	<head>
 		{{ block('head_brand') }}
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css?05" />
 		<link rel="stylesheet" type="text/css" href="css/loader.css" />
 		<link rel="stylesheet" type="text/css" href="css/hint.css" />
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -21,13 +21,17 @@
 		{{#each cards}}
 	  		<div class="card {{cardFilter0Tri}} {{cardFilter1Tri}} {{cardFilter2Tri}} {{cardFilter3Tri}} {{cardFilter4Tri}} {{cardFilter5Tri}} {{cardFilter6Tri}}" data-cardid="{{cardId}}">
 				<div class="card-header">
-					<div class="new {{isNew}}">NEW</div>
-					<img src="{{{cardImage}}}" alt="">
+					<img src="img/teaser/{{{cardImage}}}.jpg" alt="">
 				</div>
 				<div class="card-body">
-					<h2>{{{cardTitre}}}<br><span>{{{cardFilter1Display}}}</span></h2>
+					<h2>{{{cardTitle}}}<br><span>{{{cardFilter5Display}}}</span></h2>
 					<h5>{{cardSubtitle}}</h5>
+						<div class="card-body-info hint--top" data-hint="CEO depuis"><i class="fa fa-hourglass"></i><br>{{cardFilter1Display}}</div>
+						<div class="card-body-info hint--top" data-hint="Evolution de l’action"><i class="fa fa-line-chart"></i><br>{{cardFilter2Display}}</div>
+						<div class="card-body-info hint--top" data-hint="Salaire 2018"><i class="fa fa-briefcase"></i><br>{{cardFilter3Display}}</div>
+						<div class="card-body-info hint--top" data-hint="Nombre d’employés"><i class="fa fa-users"></i><br>{{cardFilter4Display}}</div>
 
+				</div>
 				</div>
 			</div>
 		{{/each}}
@@ -36,80 +40,76 @@
 
 	<script id="detail-template" type="text/x-handlebars-template">
 		{% verbatim %}
-			<div class="visualisator-header" style="background-image: url('{{{cardImage}}}');">
+			<div class="visualisator-header" style="background-image: url('img/{{{cardImage}}}.jpg');">
 				<div class="visualisator-header-box">
-					<h1>{{{cardTitre}}}</h1>
+					<h2>{{{cardTitle}}}</h2>
+					<h3>{{{cardSubtitle}}}</h3>
 				</div>
 			</div>
+
+			<p class="credit">Photo: {{copyright}}</p>
+
 			<div class="visualisator-body">
 
-				<h2 class="pratique">
-					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;Catégorie: {{{cardFilter4DisplaySingular}}}<br>
-					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo1}}}<br>
-					<i class="fa fa-caret-right"></i>&nbsp;&nbsp;{{{cardInfo2}}}
-				</h2>
-				<h2>
-					{{{cardSection1Title}}}
-				</h2>
-				<p id="cardSection1">
-					{{{cardSection1Text}}}
+				<p class="lead">
+					{{{cardLead}}}
 				</p>
 
-				<div class="collapsed-text">
-					<p>
-					{{{cardSection2Text}}}
+				<div id="chart-container">
+					<p><i class="fa fa-briefcase"></i> <span class="chart-title">Salaire 2018</span>: {{cardFilter3DisplayLong}}</p>
+					<div class="chart" id="salaryChart">
+						<div class="tooltip tooltip-placeholder">Cliquer/toucher un cercle pour le détail</div>
+					</div>
+
+
+
+					<!-- <p><i class="fa fa-calendar"></i> <span class="chart-title">Âge</span> </p>
+				  <div class="chart" id="ageChart"></div> -->
+
+					<p><i class="fa fa-hourglass"></i> <span class="chart-title">Ancienneté</span>: CEO depuis {{cardFilter1Display}}, dans l’entreprise depuis {{dateEntered}} </p>
+					<div class="chart" id="experienceYearsChart"></div>
+
+					<div class="explainerContainer">
+						<p class="chartExplainerTitle">Chacun de ces graphiques contient une <b>boîte à moustaches</b> <span class="hideChartExplainer">[Masquer]</span></p>
+						<p class="chartExplainer">
+								• la barre verticale épaisse indique la médiane, qui sépare les valeurs en deux groupes de taille égale (ici: 2 × 10 patrons)<br>
+								• les barres verticales du petit rectangle correspondent aux quartiles, qui séparent les valeurs en quatre groupes de taille égale (4 × 5 patrons)
+								<!-- • les lignes horizontales à gauche et à droite indiquent le minimum et le maximum -->
+						</p>
+					</div>
+
+					<p><i class="fa fa-line-chart"></i> <span class="chart-title">Évolution de l’action</span> de son entrée en fonction comme CEO jusqu’au 28 juin 2019: {{cardFilter2Display}}</p>
+  				<div class="chart" id="stocksEvolutionChart"></div>
+
+					<p><i class="fa fa-users"></i> <span class="chart-title">Nombre d’employés</span>: {{cardFilter4Display}} dans le monde, dont {{cardEmployeesCH}} en Suisse {{employeesComment}}
 					</p>
+					<div id="employeesChart"></div>
+
+					<p class="shares-and-options"><i class="fa fa-flag"></i> <span class="chart-title">Nationalité</span>: {{nationality}}</p>
+
+					{{#if stocksHolded}}
+					<p class="shares-and-options"><i class="fa fa-folder-open"></i> <span class="chart-title">Actions détenues et stock-options</span>: {{stocksHolded}}{{stocksComment}}{{#if stocksPercentage}}, soit {{stocksPercentage}} du total des actions de l’entreprise{{/if}}
+					</p>
+					{{/if}}
+
+					<p class="shares-and-options"><i class="fa fa-usd"></i> <span class="chart-title">Valeur d’une action au 28 juin 2019</span>: {{stocksValueJune}} francs suisses</p>
+
 				</div>
 
-				<h6 class="related-links">
-					Ressources associées
-				</h6>
-				<p class="related-link story-link">
-					<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<i class="fa fa-newspaper-o" style="color: #930025"></i>&nbsp;Lire l'article <a class="story-link" href="{{{cardSection5Text}}}" target="_blank">{{{cardSection4Text}}}</a>
-				</p>
-				<p class="related-link linkedin-link">
-					<i class="fa fa-angle-right"></i>&nbsp;&nbsp;<i class="fa fa-linkedin-square" style="color: #0073b1"></i>&nbsp;Consulter le profil LinkedIn de <a class="linkedin-link" href="{{{cardSection6Text}}}" target="_blank">{{{cardTitre}}}</a> <br>
-				</p>
+				<hr>
 
-				<!--<p class="linkedin">
-					{{{cardSection5Text}}}
-				</p>
-				<p class="news-link">
-					{{{cardSection6Text}}}
-				</p>
-				<p class="links">
-					<a class="previous previousCard" href="#prev"><span>‹</span> Portrait précédent</a>
-					<a class="next nextCard" href="#next">Portrait suivant <span>›</span></a>
-				</p>
-				-->
+				<div id="cardSection1">
+					{{{cardSection1Text}}}
+
+					{{#if author}}
+					<p>Par <b>{{author}}</b></p>
+					{{/if}}
+
+				</div>
+
 				<div class="links">
-					<div class="btn previous previousCard"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;<span class="hidden-xs">Portrait précédent</span><span class="visible-xs">Précédent</span></div>
-					<div class="btn next nextCard"><span class="hidden-xs">Portrait suivant</span><span class="visible-xs">Suivant</span> &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></div>
-				</div>
-				<p class="close-article" style="cursor: pointer; display: inline-block; opacity: 0.5; margin-top: 50px; color: black;">
-					<i class="fa fa-close"></i>&nbsp;Fermer
-				</p>
-
-				<!--<div class="btn btn-close">Fermer</div>-->
-			</div>
-		{% endverbatim %}
-	</script>
-
-	<script id="detail-template-simple" type="text/x-handlebars-template">
-		{% verbatim %}
-			<div class="visualisator-body">
-
-				<h2>
-					{{{cardTitre}}}
-				</h2>
-				<p id="cardSection1">
-					{{{cardSection1Text}}}
-				</p>
-
-				<div class="collapsed-text">
-					<p>
-					{{{cardSection2Text}}}
-					</p>
+					<div class="btn previous previousCard"><span class="hidden-xs"><i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;Portrait précédent</span><span class="visible-xs">Précédent</span></div>
+					<div class="btn next nextCard"><span class="hidden-xs">Portrait suivant</span><span class="visible-xs">Suivant</span><span class="hidden-xs">&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i></span></div>
 				</div>
 
 				<p class="close-article" style="cursor: pointer; display: inline-block; opacity: 0.5; margin-top: 50px; color: black;">
@@ -133,20 +133,20 @@
 			</div>
 		</div>
 
-		<h3 class="open-menu">Filtres</h3>
+		<h3 class="open-menu filters">Filtres</h3>
 
-		<div class="bg"></div>
+		<div class="bg" id="particles-js"></div>
 
 		<div class="overlay-content">
 			<div class="popup">
-				<h3>
-					Digital Shapers 2018
+				<h3 class="popup-title">
+					Les grands patrons de la petite Suisse
 				</h3>
 				<p>
-					<b>Les 100 qui font la Suisse du numérique</b>
+					<b>Le patron lambda du SMI a 55 ans, est en poste depuis 4,5 ans et, bonus compris, a gagné 5,7 millions de francs en 2018. Découvrez les vingt portraits des dirigeants des plus grosses entreprises cotées de Suisse</b>
 				</p>
 				<p>
-					Utilisez les filtres de la colonne de gauche pour trier les portraits.
+					Utilisez les filtres pour trier les portraits.
 				</p>
 				<div class="btn start">Démarrer</div>
 			</div>
@@ -159,89 +159,56 @@
 		</div>
 
 		<aside>
-			<div class="about">
-				<p><a href="#" data-cardid="200" class="btn open-details-simple"><i class="fa fa-info-circle" aria-hidden="true"></i> A propos</a></p>
-				<p><a href="#" data-cardid="300" class="btn open-details-simple"><i class="fa fa-bullhorn" aria-hidden="true"></i> Un regard sur l’avenir</a></p>
-				<p><a href="digital-shapers.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Version PDF</a></p>
-			</div>
 
-			<h3>
+			<h3 class="filters">
 				Filtrer
 			</h3>
 
 			<div class="filter1">
 				<h4>
-					Par âge <span><i class="fa fa-close"></i>
+					Par genre <span><i class="fa fa-close"></i>
 				</h4>
 				<div class="filter1-btn-grp" data-filter-group="theme">
-					<div class="btn" data-filter=".f-moins-40">- de 40 ans</div>
-					<div class="btn" data-filter=".f-plus-40">40 ans et +</div>
+					<div class="btn disabled" data-filter=".f-femme">Aucune femme ne figure parmi les patrons des vingt entreprises du SMI.</div>
 				</div>
 			</div>
 
-			<div class="filter2">
+			<div class="filter4">
 				<h4>
-					Par région <span><i class="fa fa-close"></i>
+					Par salaire <span><i class="fa fa-close"></i>
 				</h4>
-				<div class="filter2-btn-grp" data-filter-group="theme">
-					<div class="btn" data-filter=".f-romand">Suisse romands</div>
-					<div class="btn" data-filter=".f-alemanique">Suisse alémaniques</div>
-					<div class="btn" data-filter=".f-expats">Expats</div>
+				<div class="filter4-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-salaire-1">1 à 5 millions</div>
+					<div class="btn" data-filter=".f-salaire-2">6 à 10 millions</div>
+					<div class="btn" data-filter=".f-salaire-3">Plus de 10 millions</div>
 				</div>
 			</div>
 
 			<div class="filter3">
 				<h4>
-					Par genre <span><i class="fa fa-close"></i>
+					Par ancienneté <span><i class="fa fa-close"></i>
 				</h4>
 				<div class="filter3-btn-grp" data-filter-group="theme">
-					<div class="btn" data-filter=".f-homme">Hommes</div>
-					<div class="btn" data-filter=".f-femme">Femmes</div>
+					<div class="btn" data-filter=".f-experience-1">Moins de deux ans</div>
+					<div class="btn" data-filter=".f-experience-2">De deux à dix ans</div>
+					<div class="btn" data-filter=".f-experience-3">Plus de dix ans</div>
 				</div>
 			</div>
 
-			<div class="filter4">
-				<!--
+			<div class="filter2">
 				<h4>
-					Par catégorie <span><i class="fa fa-close"></i>
+					Par évolution de l’action <span><i class="fa fa-close"></i>
 				</h4>
-				<div class="filter4-btn-grp" data-filter-group="theme">
-					<div class="btn" data-filter=".f-do-gooders">Bienfaiteurs</div>
-					<div class="btn" data-filter=".f-researchers">Chercheurs</div>
-					<div class="btn" data-filter=".f-creatives">Créatifs</div>
-					<div class="btn" data-filter=".f-unicorn-raisers">Éleveurs de licornes</div>
-					<div class="btn" data-filter=".f-expats">Expats</div>
-					<div class="btn" data-filter=".f-enabler">Facilitateurs</div>
-					<div class="btn" data-filter=".f-corporates">Grandes entreprises</div>
-					<div class="btn" data-filter=".f-investors">Investisseurs</div>
-					<div class="btn" data-filter=".f-tech-leaders">Leaders</div>
-					<div class="btn" data-filter=".f-serial-entrepreneurs">Serial entrepreneurs</div>
--->
-					<!--
-					<div class="btn" data-filter=".f-corporates">Corporates</div>
-					<div class="btn" data-filter=".f-creatives">Creatives</div>
-					<div class="btn" data-filter=".f-do-gooders">Do-Gooders</div>
-					<div class="btn" data-filter=".f-enabler">Enabler</div>
-					<div class="btn" data-filter=".f-expats">Expats</div>
-					<div class="btn" data-filter=".f-investors">Investors</div>
-					<div class="btn" data-filter=".f-researchers">Researchers</div>
-					<div class="btn" data-filter=".f-serial-entrepreneurs">Serial Entrepreneurs</div>
-					<div class="btn" data-filter=".f-tech-leaders">Tech Leaders</div>
-					<div class="btn" data-filter=".f-unicorn-raisers">Unicorn raisers</div>
-				-->
-<!--
-					<div class="btn" data-filter=".f-precurseurs">Les précurseurs</div>
-					<div class="btn" data-filter=".f-creatifs">Les créatifs</div>
-					<div class="btn" data-filter=".f-grands-seigneurs">Les grands seigneurs</div>
-					<div class="btn" data-filter=".f-espoirs">Les espoirs</div>
-
-				-->
+				<div class="filter2-btn-grp" data-filter-group="theme">
+					<div class="btn" data-filter=".f-negative">Baisse</div>
+					<div class="btn" data-filter=".f-positive">Hausse (jusqu’à 50%)</div>
+					<div class="btn" data-filter=".f-tres-positive">Forte hausse (50% et plus)</div>
 				</div>
 			</div>
 
-			<div class="filter5">
+			<!--<div class="filter5">
 				<h4>
-					Par secteur d’activité <span><i class="fa fa-close"></i>
+					Par nombre d’employés <span><i class="fa fa-close"></i>
 				</h4>
 				<div class="filter5-btn-grp" data-filter-group="theme">
 					<div class="btn" data-filter=".f-industrie">Industrie</div>
@@ -249,10 +216,12 @@
 					<div class="btn" data-filter=".f-industrie-non">Recherche</div>
 					<div class="btn" data-filter=".f-industrie-non">Art</div>
 				</div>
-			</div>
+			</div>-->
 
 
-			<h3 class="close-menu">
+
+
+			<h3 class="close-menu filters">
 				Fermer
 			</h3>
 
@@ -265,8 +234,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 		<script src="js/handlebars-v4.0.4.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?01"></script>
     <script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+		<script src="js/d3.v4.js"></script>
+		<script src="js/d3-graphs.js"></script>
+		<script src="js/particles.min.js"></script>
+
 	</body>
 
 </html>
